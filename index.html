@@ -5,62 +5,124 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Kevyn SOLA / Ingénieur Logiciel - Présentation, projets, compétences et contact.">
     <title>Kévyn SOLA / Ingénieur Logiciel</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous" defer></script>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <h1>Portfolio de Kévyn Sola</h1>
-        <nav>
-            <a href="#about">À propos</a>
-            <a href="#projects">Projets</a>
-            <a href="#skills">Compétences</a>
-            <a href="#contact">Contact</a>
+        <nav class="navbar">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#">
+                    <img src="/assets/images/logoRoundKS.svg" alt="Logo" width="100">
+                    Portfolio de Kévyn Sola
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#about">À propos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#projects">Projets</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#skills">Compétences</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contact">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
         </nav>
     </header>
     
     <section id="about">
-        <h2>À propos</h2>
-        <p>Bonjour ! Je suis Kévyn SOLA, un développeur web passionné spécialisé en [vos spécialisations : développement frontend, backend, etc.]. J'adore créer des expériences web modernes, performantes et intuitives.</p>
+        <div class="card mx-5 my-3">
+            <div class="card-body">
+                <h2 class="card-title">À propos</h2>
+                <p class="card-text">De formation Ingénieur du son, j'ai décidé de me reconvertir dans un domaine qui me plait: <b>La TECH!</b><br><br>
+                🎯Après une reconversion développeur puis concepteur d'application à la Wild Code School. J'ai rejoins le beau projet Kalisport pour continuer à évoluer.</p>
+            </div>
+        </div>
     </section>
     
     <section id="projects" class="projects">
-        <h2>Projets</h2>
-        <div>
-            <h3>Projet 1 : [Nom du Projet]</h3>
-            <img src="image-projet1.jpg" alt="Capture d'écran du projet 1">
-            <p>Une brève description du projet. Les technologies utilisées sont [HTML, CSS, JavaScript, etc.].</p>
-            <a href="https://lien-vers-projet1.com" target="_blank">Voir le projet</a>
-        </div>
-        <div>
-            <h3>Projet 2 : [Nom du Projet]</h3>
-            <img src="image-projet2.jpg" alt="Capture d'écran du projet 2">
-            <p>Une brève description du projet. Les technologies utilisées sont [HTML, CSS, React, etc.].</p>
-            <a href="https://lien-vers-projet2.com" target="_blank">Voir le projet</a>
+        <!-- Mosaique ou carrousel de card avec les projets -->
+        <div class="card mx-5 my-3">
+            <div class="card-body">
+                <h2 class="card-title">Projets</h2>
+                <h3>Projet 1 : CV numérique d'une personnalité fictive</h3>
+                <p class="card-text">
+                    Projet réalisé dans le cadre de la formation Développeur Web - Wild Code School (Campus d'Orléans). 
+                    <br><br>
+                    ➡️ Objectif: Réaliser une page web ayant pour but de présenter le CV d'un personnage fictif. <br><br>
+                    ➡️ Durée: deux semaines, dont trois jours de formation dédié à la réalisation du projet.
+                    <br><br>
+                    ➡️ Présentation orale du projet, à la fin de la première semaine, présentant le wireframe et l'avancement du projet.
+                    <br><br>
+                    ➡️ Présentation finale du projet, présentant la page web et les fonctionnalités du site.
+                </p>
+                <a href="https://github.com/kevyn-sola/jacksparrow_CV" target="_blank">Voir le projet</a>
+            </div>
+            <div class="card-body">
+                <h3>Projet 2 : Hackathon: Thème Voyage</h3>
+                <p class="card-text">
+                    <h4 class="card-subtitle mb-2 text-body-secondary">Context</h4>
+                    Ani Rent is the winner student project of a team Hackathon organized by the Wild Code School Orléans. The Hackathon theme was "Travel" and required to use at least one API. It took place from the 24 novembre, 9AM, to the 25 novembre, 2PM, 2022. The teams were made of 4 members
+                    <br><br>
+                    The project is made on a simple PHP MVC structure made by the Wild Code School, wich you'll find more informations about lower on this readme. Here is the link to the repository : https://github.com/WildCodeSchool/simple-mvc. 
+                    <br><br>
+                    <h4 class="card-subtitle mb-2 text-body-secondary">Description</h4>
+                    Ani Rent is a fictive entreprise which rent mounts to travel with, only in France. It is a quirky and unrealistic idea made to be original for the hackathon so don't expect to be able to mount a mosquito soon :p.
+
+                    How to navigate :
+
+                    Pick two adresses from France, don't mention the city. Exemple -> adress:'1 rue de l'adresse' postcode:'10000'
+                    Select the mount that you prefer.
+                    Confirm the cart.
+                    Enter your coordinates.
+                    Go to */admin to see the list of orders you made.
+                </p>
+                <a href="https://github.com/V-Gillet/WCS-AniRent" target="_blank">Voir le projet</a>
+            </div>
         </div>
     </section>
     
     <section id="skills">
-        <h2>Compétences</h2>
-        <ul>
-            <li>HTML, CSS, JavaScript</li>
-            <li>Frameworks : React, Vue.js</li>
-            <li>Backend : Node.js, PHP</li>
-            <li>Base de données : MySQL, MongoDB</li>
-            <li>Outils : Git, Docker</li>
-        </ul>
+        <!-- Affichage des logos techs -->
+        <div class="card mx-5 my-3">
+            <div class="card-body">
+                <h2 class="card-title">Compétences</h2>
+                <ul class="card-text">
+                    <li>HTML, CSS, JavaScript</li>
+                    <li>Frameworks : Angular, React, Expressjs</li>
+                    <li>Backend : Node.js, PHP</li>
+                    <li>Base de données : MySQL, Postgresql</li>
+                    <li>Outils : Git, Docker, PhpMyAdmin</li>
+                </ul>
+            </div>
+        </div>
     </section>
     
     <section id="contact">
-        <h2>Contact</h2>
-        <p>Pour toute question ou opportunité, n'hésitez pas à me contacter :</p>
-        <ul>
-            <li>Email : <a href="mailto:votremail@example.com">votremail@example.com</a></li>
-            <li>LinkedIn : <a href="https://www.linkedin.com/in/votreprofil" target="_blank">Mon LinkedIn</a></li>
-            <li>GitHub : <a href="https://github.com/votreprofil" target="_blank">Mon GitHub</a></li>
-        </ul>
+        <div class="card mx-5 my-3">
+            <div class="card-body">
+                <h2 class="card-title">Contact</h2>
+                <p class="card-text">Pour toute question ou opportunité, n'hésitez pas à me contacter :</p>
+                <ul class="card-text">
+                    <li>Email : <a href="mailto:kevyn.sola@gmail.com">kevyn.sola@gmail.com</a></li>
+                    <li>LinkedIn : <a href="https://www.linkedin.com/in/kevyn-sola/" target="_blank">Mon LinkedIn</a></li>
+                    <li>GitHub : <a href="https://github.com/kevyn-sola" target="_blank">Mon GitHub</a></li>
+                </ul>
+            </div>
+        </div>
     </section>
     
-    <footer>
+    <footer class="text-center">
         <p>&copy; 2024 Kévyn SOLA - Tous droits réservés.</p>
     </footer>
 </body>
