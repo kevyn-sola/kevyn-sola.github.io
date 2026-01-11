@@ -1,1 +1,206 @@
-/* You can add global styles to this file, and also import other style files */
+// Variables
+$primary-color: #2563eb; // Bleu moderne
+$secondary-color: #1e293b;
+$text-color: #334155;
+$bg-light: #f8fafc;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', 'Segoe UI', system-ui, sans-serif;
+  color: $text-color;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+section {
+  padding: 5rem 0;
+
+  &:nth-child(even) {
+    background-color: $bg-light;
+  }
+}
+
+h1, h2 {
+  color: $secondary-color;
+  margin-bottom: 1rem;
+}
+
+// Hero section
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+  }
+
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: $text-color;
+  }
+
+  .tech-stack {
+    color: $primary-color;
+    font-weight: 500;
+    margin: 1rem 0;
+  }
+
+  .cta-buttons {
+    margin-top: 2rem;
+
+    .btn {
+      padding: 0.75rem 2rem;
+      margin: 0 0.5rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s;
+
+      &.btn-primary {
+        background: $primary-color;
+        color: white;
+
+        &:hover {
+          background: darken($primary-color, 10%);
+          transform: translateY(-2px);
+        }
+      }
+
+      &.btn-secondary {
+        border: 2px solid $primary-color;
+        color: $primary-color;
+
+        &:hover {
+          background: $primary-color;
+          color: white;
+        }
+      }
+    }
+  }
+}
+
+// Skills grid
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+
+  .skill-card {
+    text-align: center;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+
+    &:hover {
+      transform: translateY(-5px);
+    }
+
+    img {
+      width: 60px;
+      height: 60px;
+      margin-bottom: 0.5rem;
+    }
+  }
+}
+
+// Projects
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.project-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+
+  h3 {
+    color: $secondary-color;
+    margin-bottom: 0.5rem;
+  }
+
+  .tech-tags {
+    color: $primary-color;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+  }
+
+  .project-features {
+    list-style: none;
+    margin-top: 1rem;
+
+    li {
+      padding: 0.25rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+
+      &:before {
+        content: "✓";
+        position: absolute;
+        left: 0;
+        color: $primary-color;
+        font-weight: bold;
+      }
+    }
+  }
+
+  &.coming-soon {
+    opacity: 0.6;
+    border: 2px dashed #cbd5e1;
+  }
+}
+
+// Contact
+.contact-links {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  margin-top: 2rem;
+
+  a {
+    color: $text-color;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s;
+
+    &:hover {
+      color: $primary-color;
+    }
+  }
+}
+
+// Responsive
+@media (max-width: 768px) {
+  .hero h1 {
+    font-size: 2rem;
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}/* You can add global styles to this file, and also import other style files */
