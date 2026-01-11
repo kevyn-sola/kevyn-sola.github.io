@@ -1,0 +1,86 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+.about {
+  padding: $spacing-5xl 0;
+  background: $bg-white;
+
+  .container {
+    @include container;
+    max-width: 900px;
+  }
+
+  h2 {
+    font-size: $font-size-4xl;
+    color: $text-primary;
+    margin-bottom: $spacing-2xl;
+    text-align: center;
+    position: relative;
+
+    &::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 4px;
+      background: $primary-color;
+      margin: $spacing-lg auto 0;
+      border-radius: $border-radius-sm;
+    }
+  }
+
+  .about-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: $spacing-2xl;
+    align-items: center;
+
+    @include respond-to('md') {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .about-text {
+    p {
+      font-size: $font-size-lg;
+      line-height: $line-height-relaxed;
+      color: $text-secondary;
+      margin-bottom: $spacing-lg;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      strong {
+        color: $primary-color;
+        font-weight: $font-weight-semibold;
+      }
+    }
+  }
+
+  .about-highlights {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: $spacing-xl;
+    margin-top: $spacing-2xl;
+
+    .highlight-item {
+      @include card;
+      text-align: center;
+      padding: $spacing-lg;
+      border-left: 4px solid $primary-color;
+
+      .highlight-number {
+        font-size: $font-size-3xl;
+        font-weight: $font-weight-bold;
+        color: $primary-color;
+        display: block;
+        margin-bottom: $spacing-sm;
+      }
+
+      .highlight-label {
+        color: $text-secondary;
+        font-size: $font-size-base;
+      }
+    }
+  }
+}

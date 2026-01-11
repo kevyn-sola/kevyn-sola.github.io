@@ -1,0 +1,77 @@
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <!-- Section À propos -->
+      <div class="footer-section">
+        <h3>Kevyn Sola</h3>
+        <p>
+          Ingénieur logiciel passionné par le développement web et mobile.
+          Toujours à la recherche de nouveaux défis et d'opportunités d'apprentissage.
+        </p>
+        <div class="social-links">
+          <a href="https://github.com/kevyn-sola" target="_blank" rel="noopener" aria-label="GitHub">
+            <i class="devicon-github-original"></i>
+          </a>
+          <a href="https://linkedin.com/in/kevyn-sola" target="_blank" rel="noopener" aria-label="LinkedIn">
+            <i class="devicon-linkedin-plain"></i>
+          </a>
+          <a href="mailto:kevyn.sola@gmail.com" aria-label="Email">
+            <i>📧</i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Section Navigation -->
+      <div class="footer-section">
+        <h3>Navigation</h3>
+        <ul class="footer-links">
+          <li><a href="#hero">→ Accueil</a></li>
+          <li><a href="#about">→ À propos</a></li>
+          <li><a href="#skills">→ Compétences</a></li>
+          <li><a href="#projects">→ Projets</a></li>
+          <li><a href="#contact">→ Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Section Contact -->
+      <div class="footer-section">
+        <h3>Contact</h3>
+        <ul class="footer-links">
+          <li>
+            <a href="mailto:kevyn.sola@gmail.com">
+              📧 kevyn.sola&#64;gmail.com
+            </a>
+          </li>
+          <li>
+            <a href="tel:+33619671040">
+              📱 06 19 67 10 40
+            </a>
+          </li>
+          <li>
+            <span>📍 Pleslin-Trigavou, Bretagne</span>
+          </li>
+          <li>
+            <span>🌍 Full Remote</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Bas du footer -->
+    <div class="footer-bottom">
+      <p>
+        © {{ currentYear }} Kevyn Sola. Tous droits réservés.
+        Fait avec ❤️ et <a href="https://angular.dev" target="_blank">Angular</a>
+      </p>
+    </div>
+  </div>
+
+  <!-- Bouton retour en haut -->
+  <button
+    class="back-to-top"
+    [class.visible]="showBackToTop"
+    (click)="scrollToTop()"
+    aria-label="Retour en haut">
+    <i>↑</i>
+  </button>
+</footer>

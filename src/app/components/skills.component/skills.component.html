@@ -1,0 +1,41 @@
+<section id="skills" class="skills">
+  <div class="container">
+    <h2>Compétences Techniques</h2>
+
+    <div class="skills-category">
+      <h3>Frontend</h3>
+      <div class="skills-grid">
+        @for(skill of frontendSkills; track skill.name){
+          <div class="skill-card">
+            <i [class]="skill.icon"></i>
+            <span>{{ skill.name }}</span>
+          </div>
+        }
+      </div>
+    </div>
+
+    <div class="skills-category">
+      <h3>Backend</h3>
+      <div class="skills-grid">
+        @for(skill of backendSkills; track skill.name){
+          <div class="skill-card">
+            <i [class]="skill.icon"></i>
+            <span>{{ skill.name }}</span>
+          </div>
+        }
+      </div>
+    </div>
+
+    <div class="skills-category">
+      <h3>Outils</h3>
+      <div class="skills-grid">
+        @for(skill of toolsSkills; track skill.name){
+          <div class="skill-card">
+            <i [class]="skill.icon"></i>
+            <span>{{ skill.name }}</span>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</section>

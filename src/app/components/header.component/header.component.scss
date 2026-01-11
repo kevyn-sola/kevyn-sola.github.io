@@ -1,0 +1,110 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixins';
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: $box-shadow-sm;
+  z-index: $z-index-fixed;
+  transition: $transition-base;
+
+  &.scrolled {
+    box-shadow: $box-shadow-md;
+  }
+
+  .container {
+    @include container;
+    @include flex-between;
+    padding-top: $spacing-md;
+    padding-bottom: $spacing-md;
+  }
+
+  .logo {
+    font-size: $font-size-xl;
+    font-weight: $font-weight-bold;
+    color: $text-primary;
+    text-decoration: none;
+
+    span {
+      color: $primary-color;
+    }
+  }
+
+  nav {
+    ul {
+      display: flex;
+      list-style: none;
+      gap: $spacing-xl;
+      margin: 0;
+      padding: 0;
+
+      li {
+        a {
+          color: $text-secondary;
+          text-decoration: none;
+          font-weight: $font-weight-medium;
+          font-size: $font-size-base;
+          padding: $spacing-sm $spacing-md;
+          border-radius: $border-radius-sm;
+          transition: $transition-base;
+
+          &:hover,
+          &.active {
+            color: $primary-color;
+            background: rgba(37, 99, 235, 0.1);
+          }
+        }
+      }
+    }
+  }
+
+  .mobile-menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: $font-size-2xl;
+    color: $text-primary;
+    cursor: pointer;
+    padding: $spacing-sm;
+  }
+
+  @include respond-to('md') {
+    .mobile-menu-toggle {
+      display: block;
+    }
+
+    nav {
+      position: fixed;
+      top: 60px;
+      left: 0;
+      right: 0;
+      background: $bg-white;
+      box-shadow: $box-shadow-lg;
+      transform: translateY(-100%);
+      opacity: 0;
+      transition: $transition-all;
+      pointer-events: none;
+
+      &.open {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: all;
+      }
+
+      ul {
+        flex-direction: column;
+        padding: $spacing-xl;
+        gap: $spacing-sm;
+
+        li a {
+          display: block;
+          padding: $spacing-md;
+        }
+      }
+    }
+  }
+}
