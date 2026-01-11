@@ -1,0 +1,105 @@
+@import 'variables';
+
+// ============================================
+// LAYOUT MIXINS
+// ============================================
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin container {
+  max-width: $container-max-width;
+  margin: 0 auto;
+  padding: 0 $container-padding;
+}
+
+// ============================================
+// COMPONENT MIXINS
+// ============================================
+
+@mixin card {
+  background: $bg-white;
+  border-radius: $border-radius-lg;
+  padding: $spacing-xl;
+  box-shadow: $box-shadow-md;
+}
+
+@mixin card-hover {
+  transition: $transition-all;
+
+  &:hover {
+    transform: translateY(-8px);
+    box-shadow: $box-shadow-xl;
+  }
+}
+
+@mixin button-base {
+  padding: $spacing-md $spacing-xl;
+  border-radius: $border-radius-md;
+  font-weight: $font-weight-medium;
+  font-size: $font-size-base;
+  text-decoration: none;
+  display: inline-block;
+  transition: $transition-all;
+  cursor: pointer;
+  border: none;
+}
+
+@mixin button-primary {
+  @include button-base;
+  background: $primary-color;
+  color: $bg-white;
+
+  &:hover {
+    background: $primary-dark;
+    transform: translateY(-2px);
+    box-shadow: $box-shadow-primary;
+  }
+}
+
+@mixin button-secondary {
+  @include button-base;
+  border: 2px solid $primary-color;
+  color: $primary-color;
+  background: transparent;
+
+  &:hover {
+    background: $primary-color;
+    color: $bg-white;
+  }
+}
+
+// ============================================
+// RESPONSIVE MIXINS
+// ============================================
+
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == 'xs' {
+    @media (max-width: $breakpoint-xs) { @content; }
+  }
+  @else if $breakpoint == 'sm' {
+    @media (max-width: $breakpoint-sm) { @content; }
+  }
+  @else if $breakpoint == 'md' {
+    @media (max-width: $breakpoint-md) { @content; }
+  }
+  @else if $breakpoint == 'lg' {
+    @media (max-width: $breakpoint-lg) { @content; }
+  }
+  @else if $breakpoint == 'xl' {
+    @media (max-width: $breakpoint-xl) { @content; }
+  }
+}
+
+// ============================================
+// ANIMATION MIXINS
+// ============================================
