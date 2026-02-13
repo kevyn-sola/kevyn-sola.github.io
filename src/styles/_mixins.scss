@@ -54,30 +54,6 @@
   border: none;
 }
 
-@mixin button-primary {
-  @include button-base;
-  background: $primary-color;
-  color: $bg-white;
-
-  &:hover {
-    background: $primary-dark;
-    transform: translateY(-2px);
-    box-shadow: $box-shadow-primary;
-  }
-}
-
-@mixin button-secondary {
-  @include button-base;
-  border: 2px solid $primary-color;
-  color: $primary-color;
-  background: transparent;
-
-  &:hover {
-    background: $primary-color;
-    color: $bg-white;
-  }
-}
-
 // ============================================
 // RESPONSIVE MIXINS
 // ============================================

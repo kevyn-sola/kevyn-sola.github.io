@@ -140,19 +140,5 @@
       }
     }
 
-    &.coming-soon {
-      opacity: 0.6;
-      border: 2px dashed $border-light;
-      cursor: not-allowed;
-
-      &:hover {
-        transform: none;
-        box-shadow: $box-shadow-md;
-      }
-
-      .project-image {
-        background: linear-gradient(135deg, $text-muted 0%, $border-color 100%);
-      }
-    }
   }
 }
