@@ -2,15 +2,19 @@
 @import '../../../styles/mixins';
 
 .hero {
+  --flair-x: 50%;
+  --flair-y: 50%;
+
   min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
-  background: linear-gradient(135deg, $bg-white 0%, $bg-light 100%);
+  background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
   position: relative;
   overflow: hidden;
   padding: $spacing-3xl 0;
+  cursor: default;
 
   // Effet de fond animé
   &::before {
@@ -18,7 +22,7 @@
     position: absolute;
     width: 500px;
     height: 500px;
-    background: radial-gradient(circle, rgba(37, 99, 235, 0.1) 0%, transparent 70%);
+    background: radial-gradient(circle, var(--primary-alpha-10) 0%, transparent 70%);
     border-radius: 50%;
     top: -250px;
     right: -250px;
@@ -37,6 +41,26 @@
     animation: float 8s ease-in-out infinite reverse;
   }
 
+  // Flair qui suit le curseur
+  .hero-flair {
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    border-radius: 50%;
+    background: radial-gradient(circle, var(--hero-flair-color) 0%, transparent 70%);
+    transform: translate(-50%, -50%);
+    left: var(--flair-x);
+    top: var(--flair-y);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 0;
+  }
+
+  &.hero--flair-visible .hero-flair {
+    opacity: 1;
+  }
+
   .container {
     position: relative;
     z-index: 1;
@@ -45,7 +69,7 @@
   h1 {
     font-size: 3.5rem;
     font-weight: $font-weight-bold;
-    color: $text-primary;
+    color: var(--text-primary);
     margin-bottom: $spacing-md;
     animation: fadeIn 0.6s ease-in;
 
@@ -61,7 +85,7 @@
   h2 {
     font-size: 1.5rem;
     font-weight: $font-weight-normal;
-    color: $text-secondary;
+    color: var(--text-secondary);
     margin-bottom: $spacing-lg;
     animation: fadeIn 0.8s ease-in 0.2s both;
 
@@ -75,7 +99,7 @@
   }
 
   .tech-stack {
-    color: $primary-color;
+    color: var(--primary-color);
     font-weight: $font-weight-medium;
     font-size: 1.125rem;
     margin-bottom: $spacing-2xl;
@@ -116,23 +140,23 @@
     }
 
     .btn-primary {
-      background: $primary-color;
+      background: var(--primary-color);
       color: white;
 
       &:hover {
-        background: $primary-dark;
+        background: var(--primary-dark);
         transform: translateY(-2px);
-        box-shadow: $box-shadow-primary;
+        box-shadow: var(--shadow-primary);
       }
     }
 
     .btn-secondary {
-      border: 2px solid $primary-color;
-      color: $primary-color;
+      border: 2px solid var(--primary-color);
+      color: var(--primary-color);
       background: transparent;
 
       &:hover {
-        background: $primary-color;
+        background: var(--primary-color);
         color: white;
       }
     }

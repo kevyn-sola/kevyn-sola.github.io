@@ -1,4 +1,5 @@
-import {Component, HostListener} from '@angular/core';
+import { Component, HostListener, inject } from '@angular/core';
+import { ThemeService } from '../../services/theme.service';
 
 @Component({
   selector: 'app-header',
@@ -7,8 +8,14 @@ import {Component, HostListener} from '@angular/core';
   styleUrl: './header.component.scss',
 })
 export class HeaderComponent {
+  private themeService = inject(ThemeService);
+
   isScrolled = false;
   isMenuOpen = false;
+
+  get isDark(): boolean {
+    return this.themeService.theme() === 'dark';
+  }
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
@@ -21,5 +28,9 @@ export class HeaderComponent {
 
   closeMenu() {
     this.isMenuOpen = false;
+  }
+
+  toggleTheme() {
+    this.themeService.toggle();
   }
 }

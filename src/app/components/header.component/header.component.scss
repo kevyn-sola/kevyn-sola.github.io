@@ -6,14 +6,14 @@
   top: 0;
   left: 0;
   right: 0;
-  background: rgba(255, 255, 255, 0.95);
+  background: var(--surface-alpha-95);
   backdrop-filter: blur(10px);
-  box-shadow: $box-shadow-sm;
+  box-shadow: var(--shadow-sm);
   z-index: $z-index-fixed;
-  transition: $transition-base;
+  transition: background-color 0.3s ease, box-shadow 0.2s ease;
 
   &.scrolled {
-    box-shadow: $box-shadow-md;
+    box-shadow: var(--shadow-md);
   }
 
   .container {
@@ -26,12 +26,18 @@
   .logo {
     font-size: $font-size-xl;
     font-weight: $font-weight-bold;
-    color: $text-primary;
+    color: var(--text-primary);
     text-decoration: none;
 
     span {
-      color: $primary-color;
+      color: var(--primary-color);
     }
+  }
+
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
   }
 
   nav {
@@ -44,21 +50,41 @@
 
       li {
         a {
-          color: $text-secondary;
+          color: var(--text-secondary);
           text-decoration: none;
           font-weight: $font-weight-medium;
           font-size: $font-size-base;
           padding: $spacing-sm $spacing-md;
           border-radius: $border-radius-sm;
-          transition: $transition-base;
+          transition: color 0.2s ease, background 0.2s ease;
 
           &:hover,
           &.active {
-            color: $primary-color;
-            background: rgba(37, 99, 235, 0.1);
+            color: var(--primary-color);
+            background: var(--primary-alpha-10);
           }
         }
       }
+    }
+  }
+
+  .theme-toggle {
+    background: none;
+    border: 2px solid var(--border-color);
+    border-radius: $border-radius-full;
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: border-color 0.2s ease, background 0.2s ease;
+    flex-shrink: 0;
+
+    &:hover {
+      border-color: var(--primary-color);
+      background: var(--primary-alpha-10);
     }
   }
 
@@ -67,7 +93,7 @@
     background: none;
     border: none;
     font-size: $font-size-2xl;
-    color: $text-primary;
+    color: var(--text-primary);
     cursor: pointer;
     padding: $spacing-sm;
   }
@@ -82,8 +108,8 @@
       top: 60px;
       left: 0;
       right: 0;
-      background: $bg-white;
-      box-shadow: $box-shadow-lg;
+      background: var(--bg-primary);
+      box-shadow: var(--shadow-lg);
       transform: translateY(-100%);
       opacity: 0;
       transition: $transition-all;

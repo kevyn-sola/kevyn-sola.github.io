@@ -24,7 +24,7 @@
 
   .footer-section {
     h3 {
-      color: $bg-white;
+      color: #ffffff;
       font-size: $font-size-lg;
       margin-bottom: $spacing-lg;
       font-weight: $font-weight-semibold;
@@ -53,7 +53,7 @@
         gap: $spacing-sm;
 
         &:hover {
-          color: $primary-light;
+          color: var(--primary-light);
           transform: translateX(5px);
         }
       }
@@ -75,12 +75,12 @@
       border-radius: 50%;
       background: rgba(255, 255, 255, 0.1);
       @include flex-center;
-      color: $bg-white;
+      color: #ffffff;
       text-decoration: none;
       transition: $transition-all;
 
       &:hover {
-        background: $primary-color;
+        background: var(--primary-color);
         transform: translateY(-3px);
       }
 
@@ -102,7 +102,7 @@
     }
 
     a {
-      color: $primary-light;
+      color: var(--primary-light);
       text-decoration: none;
 
       &:hover {
@@ -117,13 +117,13 @@
     right: $spacing-xl;
     width: 50px;
     height: 50px;
-    background: $primary-color;
-    color: $bg-white;
+    background: var(--primary-color);
+    color: #ffffff;
     border: none;
     border-radius: 50%;
     @include flex-center;
     cursor: pointer;
-    box-shadow: $box-shadow-lg;
+    box-shadow: var(--shadow-lg);
     opacity: 0;
     visibility: hidden;
     transition: $transition-all;
@@ -135,7 +135,7 @@
     }
 
     &:hover {
-      background: $primary-dark;
+      background: var(--primary-dark);
       transform: translateY(-3px);
     }
 

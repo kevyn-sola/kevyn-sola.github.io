@@ -4,21 +4,29 @@
       Kevyn<span>.</span>
     </a>
 
-    <button
-      class="mobile-menu-toggle"
-      (click)="toggleMenu()"
-      aria-label="Toggle menu">
-      {{ isMenuOpen ? '✕' : '☰' }}
-    </button>
+    <div class="nav-actions">
+      <nav [class.open]="isMenuOpen">
+        <ul>
+          <li><a href="#hero" (click)="closeMenu()">Accueil</a></li>
+          <li><a href="#about" (click)="closeMenu()">À propos</a></li>
+          <li><a href="#skills" (click)="closeMenu()">Compétences</a></li>
+          <li><a href="#projects" (click)="closeMenu()">Projets</a></li>
+        </ul>
+      </nav>
 
-    <nav [class.open]="isMenuOpen">
-      <ul>
-        <li><a href="#hero" (click)="closeMenu()">Accueil</a></li>
-        <li><a href="#about" (click)="closeMenu()">À propos</a></li>
-        <li><a href="#skills" (click)="closeMenu()">Compétences</a></li>
-        <li><a href="#projects" (click)="closeMenu()">Projets</a></li>
-        <!--<li><a href="#contact" (click)="closeMenu()">Contact</a></li>-->
-      </ul>
-    </nav>
+      <button
+        class="theme-toggle"
+        (click)="toggleTheme()"
+        [attr.aria-label]="isDark ? 'Passer en mode clair' : 'Passer en mode sombre'">
+        {{ isDark ? '☀️' : '🌙' }}
+      </button>
+
+      <button
+        class="mobile-menu-toggle"
+        (click)="toggleMenu()"
+        aria-label="Toggle menu">
+        {{ isMenuOpen ? '✕' : '☰' }}
+      </button>
+    </div>
   </div>
 </header>

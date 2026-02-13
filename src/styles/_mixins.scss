@@ -27,10 +27,10 @@
 // ============================================
 
 @mixin card {
-  background: $bg-white;
+  background: var(--surface-color);
   border-radius: $border-radius-lg;
   padding: $spacing-xl;
-  box-shadow: $box-shadow-md;
+  box-shadow: var(--shadow-md);
 }
 
 @mixin card-hover {
@@ -38,7 +38,7 @@
 
   &:hover {
     transform: translateY(-8px);
-    box-shadow: $box-shadow-xl;
+    box-shadow: var(--shadow-xl);
   }
 }
 
