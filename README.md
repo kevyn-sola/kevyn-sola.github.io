@@ -2,6 +2,8 @@
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.5.
 
+[![Issues](https://img.shields.io/github/issues/kevyn-sola/kevyn-sola.github.io)](https://github.com/kevyn-sola/kevyn-sola.github.io/issues)
+
 ## Development server
 
 To start a local development server, run:
