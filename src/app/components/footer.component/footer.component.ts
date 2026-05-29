@@ -1,4 +1,4 @@
-import {Component, HostListener} from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-footer',
@@ -6,19 +6,4 @@ import {Component, HostListener} from '@angular/core';
   templateUrl: './footer.component.html',
   styleUrl: './footer.component.scss',
 })
-export class FooterComponent {
-  currentYear = new Date().getFullYear();
-  showBackToTop = false;
-
-  @HostListener('window:scroll', [])
-  onWindowScroll() {
-    this.showBackToTop = window.scrollY > 300;
-  }
-
-  scrollToTop() {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
-    });
-  }
-}
+export class FooterComponent {}

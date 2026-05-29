@@ -1,25 +1,30 @@
-import { Component, HostListener, inject } from '@angular/core';
-import { ThemeService } from '../../services/theme.service';
+import { Component, HostListener } from '@angular/core';
+import { RouterModule, Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-header',
-  imports: [],
+  imports: [RouterModule, CommonModule],
   templateUrl: './header.component.html',
   styleUrl: './header.component.scss',
 })
 export class HeaderComponent {
-  private themeService = inject(ThemeService);
-
   isScrolled = false;
   isMenuOpen = false;
+  lastScrollY = 0;
 
-  get isDark(): boolean {
-    return this.themeService.theme() === 'dark';
-  }
+  constructor(private router: Router) {}
 
   @HostListener('window:scroll', [])
   onWindowScroll() {
-    this.isScrolled = window.scrollY > 50;
+    const y = window.scrollY;
+    this.isScrolled = y > 40;
+    if (y < this.lastScrollY - 10 || y < 100) {
+      // Nav visible
+    } else if (y > this.lastScrollY + 10 && y > 200) {
+      // Nav hidden
+    }
+    this.lastScrollY = y;
   }
 
   toggleMenu() {
@@ -30,7 +35,8 @@ export class HeaderComponent {
     this.isMenuOpen = false;
   }
 
-  toggleTheme() {
-    this.themeService.toggle();
+  goHome() {
+    this.router.navigate(['/']);
+    this.closeMenu();
   }
 }

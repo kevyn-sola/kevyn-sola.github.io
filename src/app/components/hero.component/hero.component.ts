@@ -1,4 +1,4 @@
-import { Component, ElementRef, HostListener } from '@angular/core';
+import { Component, ElementRef, AfterViewInit } from '@angular/core';
 
 @Component({
   selector: 'app-hero',
@@ -6,26 +6,21 @@ import { Component, ElementRef, HostListener } from '@angular/core';
   templateUrl: './hero.component.html',
   styleUrl: './hero.component.scss',
 })
-export class HeroComponent {
+export class HeroComponent implements AfterViewInit {
   constructor(private el: ElementRef) {}
 
-  @HostListener('mousemove', ['$event'])
-  onMouseMove(e: MouseEvent) {
-    const hero = this.el.nativeElement.querySelector('.hero') as HTMLElement;
-    const rect = hero.getBoundingClientRect();
-    hero.style.setProperty('--flair-x', `${e.clientX - rect.left}px`);
-    hero.style.setProperty('--flair-y', `${e.clientY - rect.top}px`);
+  ngAfterViewInit() {
+    setTimeout(() => this.animateHero(), 200);
   }
 
-  @HostListener('mouseenter')
-  onMouseEnter() {
-    const hero = this.el.nativeElement.querySelector('.hero') as HTMLElement;
-    hero.classList.add('hero--flair-visible');
-  }
-
-  @HostListener('mouseleave')
-  onMouseLeave() {
-    const hero = this.el.nativeElement.querySelector('.hero') as HTMLElement;
-    hero.classList.remove('hero--flair-visible');
+  private animateHero() {
+    const spans = this.el.nativeElement.querySelectorAll('.hero-name .word span');
+    spans.forEach((el: HTMLElement, i: number) => {
+      setTimeout(() => {
+        el.style.transition = 'transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease';
+        el.style.transform = 'translateY(0)';
+        el.style.opacity = '1';
+      }, 100 + i * 120);
+    });
   }
 }

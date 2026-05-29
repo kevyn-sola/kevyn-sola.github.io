@@ -79,3 +79,14 @@
 // ============================================
 // ANIMATION MIXINS
 // ============================================
+
+@mixin reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+
+  &.on {
+    opacity: 1;
+    transform: none;
+  }
+}

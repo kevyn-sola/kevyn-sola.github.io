@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 interface Skill {
   name: string;
-  icon: string;
+  hot?: boolean;
 }
 
 @Component({
@@ -12,25 +12,41 @@ interface Skill {
   styleUrl: './skills.component.scss',
 })
 export class SkillsComponent {
-  frontendSkills: Skill[] = [
-    { name: 'Angular', icon: 'devicon-angular-plain' },
-    { name: 'TypeScript', icon: 'devicon-typescript-plain colored' },
-    { name: 'Ionic', icon: 'devicon-ionic-original colored' },
-    { name: 'HTML5', icon: 'devicon-html5-plain colored' },
-    { name: 'CSS3', icon: 'devicon-css3-plain colored' },
-    { name: 'SCSS', icon: 'devicon-sass-original colored' },
+  skillsForward: Skill[] = [
+    { name: 'Angular', hot: true },
+    { name: 'Java', hot: true },
+    { name: 'Spring Boot', hot: true },
+    { name: 'Spring Security', hot: true },
+    { name: 'Spring Data JPA', hot: true },
+    { name: 'NestJS' },
+    { name: 'TypeScript' },
+    { name: 'PHP' },
+    { name: 'PostgreSQL' },
+    { name: 'MariaDB' },
+    { name: 'Docker' },
+    { name: 'Ionic', hot: true },
+    { name: 'Capacitor', hot: true },
+    { name: 'Gradle' },
+    { name: 'Maven' },
+    { name: 'REST API' },
   ];
 
-  backendSkills: Skill[] = [
-    { name: 'PHP', icon: 'devicon-php-plain colored' },
-    { name: 'MySQL', icon: 'devicon-mysql-plain colored' },
-    { name: 'Node.js', icon: 'devicon-nodejs-plain colored' },
-  ];
-
-  toolsSkills: Skill[] = [
-    { name: 'Git', icon: 'devicon-git-plain colored' },
-    { name: 'GitHub', icon: 'devicon-github-original' },
-    { name: 'VS Code', icon: 'devicon-vscode-plain colored' },
-    { name: 'Figma', icon: 'devicon-figma-plain colored' },
+  skillsReverse: Skill[] = [
+    { name: 'Grafana' },
+    { name: 'Prometheus' },
+    { name: 'WebSockets' },
+    { name: 'OWASP' },
+    { name: 'Scrum' },
+    { name: 'CI/CD' },
+    { name: 'Git' },
+    { name: 'Linux' },
+    { name: 'Prisma ORM' },
+    { name: 'Hibernate' },
+    { name: 'NextJS' },
+    { name: 'HTML/SCSS' },
+    { name: 'TDD' },
+    { name: 'MVC' },
+    { name: 'IoC/DI' },
+    { name: 'Figma' },
   ];
 }

@@ -1,20 +1,36 @@
-<section id="projects" class="projects">
-  <div class="container">
-    <h2>Projets</h2>
-    <div class="projects-grid">
-      <div class="project-card">
-        <h3>Application Mobile Sportive</h3>
-        <p class="tech-tags">Ionic • Angular • PHP • MySQL</p>
-        <p>
-          Développement complet d'une application mobile de gestion sportive.
-          Architecture full-stack avec messagerie temps réel et système de tournois.
-        </p>
-        <ul class="project-features">
-          <li>Conception UX/UI sur Figma</li>
-          <li>APIs REST personnalisées</li>
-          <li>Déploiement en production</li>
-        </ul>
-      </div>
+<section id="projects" class="section">
+  <div class="s-header reveal">
+    <div>
+      <div class="s-label">// 01</div>
+      <h2 class="s-title">Projets</h2>
     </div>
+  </div>
+
+  <div class="projects-grid">
+    @for (project of projects; track project.id) {
+      <div [class.featured]="project.featured" class="proj-card reveal" (click)="navigateToProject(project.id)">
+        <div [class.featured-vis]="project.featured" class="proj-visual">
+          <div [class]="'proj-gradient ' + project.gradient"></div>
+          <div class="proj-tech-overlay">
+            @for (tech of project.mainTechs; track tech) {
+              <span class="tech-badge hot">{{ tech }}</span>
+            }
+            @for (tech of project.allTechs; track tech) {
+              <span class="tech-badge">{{ tech }}</span>
+            }
+          </div>
+          <div class="proj-overlay">
+            <div class="proj-overlay-btn">Voir le projet →</div>
+          </div>
+        </div>
+        <div class="proj-info">
+          <div class="proj-info-top">
+            <div class="proj-name">{{ project.title }}</div>
+            <div class="proj-year">{{ project.year }}</div>
+          </div>
+          <div class="proj-tagline">{{ project.tagline }}</div>
+        </div>
+      </div>
+    }
   </div>
 </section>

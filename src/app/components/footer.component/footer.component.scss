@@ -1,146 +1,27 @@
 @import '../../../styles/variables';
 @import '../../../styles/mixins';
 
-.footer {
-  background: $bg-dark;
-  color: rgba(255, 255, 255, 0.8);
-  padding: $spacing-3xl 0 $spacing-xl;
+footer {
+  padding: 1.5rem 3rem;
+  border-top: 1px solid var(--border-color);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
-  .container {
-    @include container;
-  }
-
-  .footer-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: $spacing-2xl;
-    margin-bottom: $spacing-2xl;
-
-    @include respond-to('md') {
-      grid-template-columns: 1fr;
-      text-align: center;
-    }
-  }
-
-  .footer-section {
-    h3 {
-      color: #ffffff;
-      font-size: $font-size-lg;
-      margin-bottom: $spacing-lg;
-      font-weight: $font-weight-semibold;
-    }
-
-    p {
-      line-height: $line-height-relaxed;
-      margin-bottom: $spacing-md;
-    }
-  }
-
-  .footer-links {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-
-    li {
-      margin-bottom: $spacing-sm;
-
-      a {
-        color: rgba(255, 255, 255, 0.8);
-        text-decoration: none;
-        transition: $transition-base;
-        display: inline-flex;
-        align-items: center;
-        gap: $spacing-sm;
-
-        &:hover {
-          color: var(--primary-light);
-          transform: translateX(5px);
-        }
-      }
-    }
-  }
-
-  .social-links {
-    display: flex;
-    gap: $spacing-lg;
-    margin-top: $spacing-lg;
-
-    @include respond-to('md') {
-      justify-content: center;
-    }
-
-    a {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.1);
-      @include flex-center;
-      color: #ffffff;
-      text-decoration: none;
-      transition: $transition-all;
-
-      &:hover {
-        background: var(--primary-color);
-        transform: translateY(-3px);
-      }
-
-      i {
-        font-size: $font-size-lg;
-      }
-    }
-  }
-
-  .footer-bottom {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    padding-top: $spacing-xl;
+  @include respond-to('md') {
+    flex-direction: column;
+    gap: 0.5rem;
     text-align: center;
-    font-size: $font-size-sm;
-    color: rgba(255, 255, 255, 0.6);
-
-    p {
-      margin: 0;
-    }
-
-    a {
-      color: var(--primary-light);
-      text-decoration: none;
-
-      &:hover {
-        text-decoration: underline;
-      }
-    }
+    padding: 1.5rem;
   }
 
-  .back-to-top {
-    position: fixed;
-    bottom: $spacing-xl;
-    right: $spacing-xl;
-    width: 50px;
-    height: 50px;
-    background: var(--primary-color);
-    color: #ffffff;
-    border: none;
-    border-radius: 50%;
-    @include flex-center;
-    cursor: pointer;
-    box-shadow: var(--shadow-lg);
-    opacity: 0;
-    visibility: hidden;
-    transition: $transition-all;
-    z-index: $z-index-sticky;
-
-    &.visible {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    &:hover {
-      background: var(--primary-dark);
-      transform: translateY(-3px);
-    }
-
-    i {
-      font-size: $font-size-xl;
-    }
+  p {
+    font-family: var(--font-code);
+    font-size: 0.62rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    margin: 0;
+    padding: 0;
   }
 }

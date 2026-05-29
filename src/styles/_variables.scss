@@ -2,40 +2,36 @@
 // COLORS
 // ============================================
 
-// Primary colors
-$primary-color: #2563eb;        // Bleu moderne
-$primary-dark: #1e40af;         // Bleu foncé
-$primary-light: #3b82f6;        // Bleu clair
+// Primary colors (Orange theme)
+$primary-color: #ff6b35;        // Orange vif
+$primary-dark: #cc4f1e;         // Orange foncé
+$primary-light: #ff8a5b;        // Orange clair
 
-// Secondary colors
-$secondary-color: #1e293b;      // Gris anthracite
-$secondary-light: #334155;      // Gris moyen
-$secondary-lighter: #475569;    // Gris clair
+// Background colors (Dark theme)
+$bg-main: #080808;              // Background principal
+$bg-s1: #111;                   // Surface 1
+$bg-s2: #1a1a1a;               // Surface 2
+$bg-s3: #242424;               // Surface 3
+
+// Text colors
+$text-primary: #e8e8e8;         // Texte principal
+$text-muted: #666;              // Texte atténué
+$text-faint: #333;              // Texte très faint
+
+// Border colors
+$border-color: #2a2a2a;         // Bordures
 
 // Accent colors
-$accent-color: #10b981;         // Vert (success)
-$warning-color: #f59e0b;        // Orange (warning)
-$error-color: #ef4444;          // Rouge (error)
-
-// Neutral colors
-$text-primary: #1e293b;         // Texte principal
-$text-secondary: #334155;       // Texte secondaire
-$text-muted: #64748b;           // Texte atténué
-
-$bg-white: #ffffff;
-$bg-light: #f8fafc;             // Background clair
-$bg-lighter: #f1f5f9;           // Background très clair
-$bg-dark: #0f172a;              // Background sombre
-
-$border-color: #e2e8f0;         // Bordures
-$border-light: #cbd5e1;         // Bordures claires
+$accent-color: $primary-color;
+$warning-color: $primary-color;
+$error-color: #ef4444;
 
 // ============================================
 // TYPOGRAPHY
 // ============================================
 
-$font-primary: 'Inter', 'Segoe UI', system-ui, sans-serif;
-$font-code: 'Fira Code', 'Courier New', monospace;
+$font-primary: 'Outfit', sans-serif;
+$font-code: 'JetBrains Mono', monospace;
 
 $font-size-xs: 0.75rem;         // 12px
 $font-size-sm: 0.875rem;        // 14px

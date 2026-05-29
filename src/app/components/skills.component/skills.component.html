@@ -1,41 +1,20 @@
-<section id="skills" class="skills">
-  <div class="container">
-    <h2>Compétences Techniques</h2>
-
-    <div class="skills-category">
-      <h3>Frontend</h3>
-      <div class="skills-grid">
-        @for(skill of frontendSkills; track skill.name){
-          <div class="skill-card">
-            <i [class]="skill.icon"></i>
-            <span>{{ skill.name }}</span>
-          </div>
-        }
-      </div>
-    </div>
-
-    <div class="skills-category">
-      <h3>Backend</h3>
-      <div class="skills-grid">
-        @for(skill of backendSkills; track skill.name){
-          <div class="skill-card">
-            <i [class]="skill.icon"></i>
-            <span>{{ skill.name }}</span>
-          </div>
-        }
-      </div>
-    </div>
-
-    <div class="skills-category">
-      <h3>Outils</h3>
-      <div class="skills-grid">
-        @for(skill of toolsSkills; track skill.name){
-          <div class="skill-card">
-            <i [class]="skill.icon"></i>
-            <span>{{ skill.name }}</span>
-          </div>
-        }
-      </div>
-    </div>
+<div class="marquee-section reveal">
+  <div class="marquee-track fwd">
+    @for (skill of skillsForward; track skill) {
+      <span [class.hot]="skill.hot" class="marquee-item">{{ skill.name }}</span>
+    }
+    <!-- duplicate for seamless loop -->
+    @for (skill of skillsForward; track skill) {
+      <span [class.hot]="skill.hot" class="marquee-item">{{ skill.name }}</span>
+    }
   </div>
-</section>
+  <div class="marquee-track rev">
+    @for (skill of skillsReverse; track skill) {
+      <span class="marquee-item">{{ skill.name }}</span>
+    }
+    <!-- duplicate for seamless loop -->
+    @for (skill of skillsReverse; track skill) {
+      <span class="marquee-item">{{ skill.name }}</span>
+    }
+  </div>
+</div>
