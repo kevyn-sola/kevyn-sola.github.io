@@ -24,6 +24,17 @@ export class App implements AfterViewInit {
   }
 
   private initCustomCursor() {
+    const isTouchDevice = () => {
+      return (('ontouchstart' in window) ||
+              (navigator.maxTouchPoints > 0) ||
+              ((navigator as any).msMaxTouchPoints > 0));
+    };
+
+    if (isTouchDevice()) {
+      document.body.style.cursor = 'auto';
+      return;
+    }
+
     const follower = document.querySelector('.cursor-follower') as HTMLElement;
     const dot = document.querySelector('.cursor-dot') as HTMLElement;
     let mouseX = 0;

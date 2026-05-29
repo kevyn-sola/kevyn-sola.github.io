@@ -29,4 +29,14 @@ main {
   z-index: 10000;
   transition: all 0.05s ease-out;
   box-shadow: 0 0 10px rgba(255, 107, 53, 0.6);
+
+  @media (max-width: 768px) {
+    display: none;
+  }
+}
+
+.cursor-follower {
+  @media (max-width: 768px) {
+    display: none;
+  }
 }
