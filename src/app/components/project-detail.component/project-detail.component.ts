@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy, AfterViewInit, NgZone } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ProjectsService, Project } from '../../services/projects.service';
@@ -12,13 +12,17 @@ import { FooterComponent } from '../footer.component/footer.component';
   templateUrl: './project-detail.component.html',
   styleUrl: './project-detail.component.scss',
 })
-export class ProjectDetailComponent implements OnInit {
+export class ProjectDetailComponent implements OnInit, AfterViewInit, OnDestroy {
   project: Project | undefined;
+  heroVisible = true;
+
+  private heroObserver: IntersectionObserver | null = null;
 
   constructor(
     private route: ActivatedRoute,
     private router: Router,
-    private projectsService: ProjectsService
+    private projectsService: ProjectsService,
+    private ngZone: NgZone
   ) {}
 
   ngOnInit() {
@@ -30,6 +34,23 @@ export class ProjectDetailComponent implements OnInit {
       }
       window.scrollTo(0, 0);
     });
+  }
+
+  ngAfterViewInit() {
+    const hero = document.querySelector('.proj-detail-hero');
+    if (!hero) return;
+
+    this.heroObserver = new IntersectionObserver(
+      ([entry]) => {
+        this.ngZone.run(() => { this.heroVisible = entry.isIntersecting; });
+      },
+      { threshold: 0 }
+    );
+    this.heroObserver.observe(hero);
+  }
+
+  ngOnDestroy() {
+    this.heroObserver?.disconnect();
   }
 
   goBack() {

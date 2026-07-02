@@ -3,7 +3,7 @@
 @if (project) {
   <div class="proj-detail-hero">
     <div [class]="'proj-detail-visual proj-gradient ' + project.gradient"></div>
-    <button class="proj-detail-back" (click)="goBack()">Retour aux projets</button>
+    <button class="proj-detail-back" (click)="goBack()">← Retour aux projets</button>
     <div class="proj-detail-label">{{ project.label }}</div>
     <h2 class="proj-detail-title">{{ project.title }}</h2>
     <div class="proj-detail-meta">
@@ -22,39 +22,41 @@
     </div>
   </div>
 
-  <div class="proj-detail-body">
-    <div class="proj-detail-grid">
-      <div>
-        <p class="proj-detail-intro" [innerHTML]="project.intro"></p>
-        <div class="proj-features-title">Fonctionnalités clés</div>
-        <ul class="proj-features">
-          @for (feature of project.features; track feature) {
-            <li [innerHTML]="feature"></li>
-          }
-        </ul>
-      </div>
-      <div class="proj-sidebar">
-        <div class="proj-stack-box">
-          <div class="proj-stack-box-title">Stack principale</div>
-          <div class="proj-tags">
-            @for (tech of project.mainTechs; track tech) {
-              <span class="proj-tag main">{{ tech }}</span>
-            }
-          </div>
-        </div>
-        <div class="proj-stack-box">
-          <div class="proj-stack-box-title">Technologies</div>
-          <div class="proj-tags">
-            @for (tech of project.allTechs; track tech) {
-              <span class="proj-tag">{{ tech }}</span>
-            }
-          </div>
-        </div>
-      </div>
-    </div>
+  <div [class]="'proj-scroll-bar ' + project.gradient" [style.display]="heroVisible ? 'none' : 'flex'">
+    <button class="proj-scroll-back" (click)="goBack()">← Retour aux projets</button>
+    <span class="proj-scroll-title">{{ project.title }}</span>
+  </div>
 
-    <div style="margin-top:4rem;padding-top:3rem;border-top:1px solid var(--border)">
-      <div class="proj-features-title" style="margin-bottom:1.5rem">Captures d'écran</div>
+  <div class="proj-content">
+
+    <aside class="proj-sidebar">
+      <p class="proj-detail-intro" [innerHTML]="project.intro"></p>
+      <div class="proj-features-title">Fonctionnalités clés</div>
+      <ul class="proj-features">
+        @for (feature of project.features; track feature) {
+          <li [innerHTML]="feature"></li>
+        }
+      </ul>
+      <div class="proj-stack-box">
+        <div class="proj-stack-box-title">Stack principale</div>
+        <div class="proj-tags">
+          @for (tech of project.mainTechs; track tech) {
+            <span class="proj-tag main">{{ tech }}</span>
+          }
+        </div>
+      </div>
+      <div class="proj-stack-box">
+        <div class="proj-stack-box-title">Technologies</div>
+        <div class="proj-tags">
+          @for (tech of project.allTechs; track tech) {
+            <span class="proj-tag">{{ tech }}</span>
+          }
+        </div>
+      </div>
+    </aside>
+
+    <div class="proj-captures">
+      <div class="proj-captures-label">Captures d'écran</div>
       @for (img of project.images; track img.label) {
         @if (!img.type) {
           <div [class]="'proj-img-zone ' + img.ratio" [attr.data-label]="img.label"></div>
@@ -67,15 +69,14 @@
           </div>
         }
       }
-      <p style="font-family:var(--f-m);font-size:.62rem;color:var(--faint);letter-spacing:.08em;text-transform:uppercase;margin-top:1rem">
-        Images à venir – placeholders en attente des captures produit
-      </p>
+      <p class="proj-captures-placeholder">Images à venir – placeholders en attente des captures produit</p>
     </div>
+
   </div>
 
-  <footer style="margin:0 3rem;padding:1.5rem 0;border-top:1px solid var(--border);display:flex;justify-content:space-between">
-    <button (click)="goBack()" class="btn-outline" style="border:none;padding:0;font-size:.68rem;cursor:pointer;color:var(--muted);background:none;font-family:var(--f-m);letter-spacing:.1em;text-transform:uppercase">← Retour</button>
-    <p style="font-family:var(--f-m);font-size:.62rem;letter-spacing:.06em;text-transform:uppercase;color:var(--faint)">Kevyn SOLA · 2026</p>
+  <footer class="proj-detail-footer">
+    <button (click)="goBack()" class="btn-retour">← Retour</button>
+    <p class="proj-detail-credit">Kevyn SOLA · 2026</p>
   </footer>
 
   <app-footer></app-footer>
