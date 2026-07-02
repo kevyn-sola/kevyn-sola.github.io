@@ -133,6 +133,16 @@
   );
 }
 
+.g-fcgm {
+  background: linear-gradient(
+    135deg,
+    #050d1a 0%,
+    #0a1a35 40%,
+    #0f2a50 70%,
+    #071528 100%
+  );
+}
+
 .proj-tech-overlay {
   position: absolute;
   top: 1.2rem;
@@ -184,7 +194,12 @@
   padding: 0.7rem 1.6rem;
   font-weight: 500;
   transform: translateY(8px);
-  transition: transform 0.25s ease;
+  transition: transform 0.25s ease, background 0.2s ease, color 0.2s ease;
+
+  &:hover {
+    background: #000;
+    color: var(--primary-color);
+  }
 }
 
 .proj-card:hover .proj-overlay-btn {
