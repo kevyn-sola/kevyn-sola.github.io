@@ -57,19 +57,24 @@
 
     <div class="proj-captures">
       <div class="proj-captures-label">Captures d'écran</div>
-      @for (img of project.images; track img.label) {
-        @if (!img.type) {
-          <div [class]="'proj-img-zone ' + img.ratio" [attr.data-label]="img.label"></div>
+      @for (img of project.images; track $index) {
+        @if (!img.type && img.src) {
+          <figure [class]="'proj-img-zone has-img ' + img.ratio">
+            <img [src]="img.src" [alt]="img.label" loading="lazy" />
+          </figure>
         }
         @if (img.type === 'row' && img.items) {
           <div class="piz-row">
-            @for (item of img.items; track item.label) {
-              <div class="proj-img-zone piz-sm" [attr.data-label]="item.label"></div>
+            @for (item of img.items; track $index) {
+              @if (item.src) {
+                <figure class="proj-img-zone has-img piz-sm">
+                  <img [src]="item.src" [alt]="item.label" loading="lazy" />
+                </figure>
+              }
             }
           </div>
         }
       }
-      <p class="proj-captures-placeholder">Images à venir – placeholders en attente des captures produit</p>
     </div>
 
   </div>

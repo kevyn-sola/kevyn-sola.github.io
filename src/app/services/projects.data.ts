@@ -8,8 +8,8 @@ export const PROJECTS: Project[] = [
     year: '2026',
     tagline: 'Application Kanban avec génération automatique de roadmaps client, partageables via URL publique ou protégée par mot de passe.',
     gradient: 'g-kanban',
-    mainTechs: ['Java', 'Spring Boot', 'Spring Security', 'Spring Data JPA'],
-    allTechs: ['Angular', 'PostgreSQL', 'Docker'],
+    mainTechs: ['Java', 'Spring Boot', 'Angular', 'TypeScript'],
+    allTechs: ['Spring Security', 'Spring Data JPA', 'PostgreSQL', 'Docker'],
     featured: true,
     type: 'Application web fullstack',
     role: 'Conception & développement',
@@ -22,6 +22,17 @@ export const PROJECTS: Project[] = [
       'Frontend <span class="bold">Angular</span> : gestion des boards, drag-and-drop des tâches, vue roadmap dédiée',
       'Conteneurisation <span class="bold">Docker Compose</span> : API + frontend + base de données',
     ],
+    caseStudy: {
+      context: `Projet personnel pour pratiquer l'écosystème Spring Boot de bout en bout : sécurisation des endpoints, persistance, conteneurisation.`,
+      // TODO : pour chaque décision, ajouter le « pourquoi » (alternative écartée, contrainte).
+      decisions: [
+        `Roadmaps client générées depuis les boards, partageables via URL publique ou protégée par mot de passe`,
+        `Authentification Spring Security + JWT, avec des niveaux d'accès public / protégé`,
+        `Architecture Controller / Service / Repository, persistance Spring Data JPA`,
+      ],
+      // TODO : état du projet (en ligne ? utilisé ?) et ce que tu en as appris.
+      results: [],
+    },
     images: [
       { ratio: 'piz-1', label: 'Vue principale – Boards & tâches' },
       { ratio: 'piz-2', label: 'Vue Roadmap client partageable' },
@@ -38,7 +49,7 @@ export const PROJECTS: Project[] = [
     year: '2026',
     tagline: 'Solution fullstack – backend NestJS, frontend Angular, site vitrine NextJS invités, roadmap mobile Ionic.',
     gradient: 'g-mariage',
-    mainTechs: ['NestJS', 'Angular', 'NextJS'],
+    mainTechs: ['Angular', 'TypeScript', 'NestJS', 'NextJS'],
     allTechs: ['PostgreSQL', 'Prisma ORM', 'Docker'],
     type: 'Application fullstack multi-surfaces',
     role: 'Conception & développement',
@@ -51,6 +62,17 @@ export const PROJECTS: Project[] = [
       'Conteneurisation <span class="bold">Docker Compose</span> : API + frontend + base de données',
       'Roadmap : app mobile <span class="bold">Ionic / Capacitor / Angular</span> connectée aux endpoints NestJS',
     ],
+    caseStudy: {
+      context: `Organiser un mariage, pensé comme un produit à part entière, avec des besoins différents pour les mariés et pour les invités.`,
+      // TODO : pourquoi trois surfaces séparées ? pourquoi NestJS plutôt que Spring Boot ici ?
+      decisions: [
+        `Trois surfaces distinctes : gestion pour les mariés (Angular), site invités avec RSVP (NextJS), application mobile en roadmap (Ionic)`,
+        `Backend NestJS modulaire avec injection de dépendances, un paradigme proche de Spring Boot`,
+        `PostgreSQL + Prisma ORM, le tout conteneurisé avec Docker Compose`,
+      ],
+      // TODO : utilisé pour ton mariage ? nombre d'invités, RSVP reçus, retours…
+      results: [],
+    },
     images: [
       { ratio: 'piz-1', label: 'Dashboard mariés – vue principale' },
       { ratio: 'piz-2', label: 'Site vitrine invités (NextJS)' },
@@ -67,8 +89,8 @@ export const PROJECTS: Project[] = [
     year: '2026',
     tagline: 'Application mobile dédiée au tournoi de Guipry-Messac : suivi des phases, résultats en temps réel, carte interactive et statistiques RGPD.',
     gradient: 'g-fcgm',
-    mainTechs: ['Angular', 'Ionic', 'Capacitor', 'TypeScript'],
-    allTechs: ['PHP', 'MariaDB', 'Gradle', 'XCode', 'Android Studio'],
+    mainTechs: ['Angular', 'TypeScript', 'PHP', 'Ionic', 'Capacitor'],
+    allTechs: ['MariaDB', 'Gradle', 'XCode', 'Android Studio'],
     type: 'Application mobile hybride · Marque blanche',
     role: 'Développement & déploiement',
     intro: `Application mobile dédiée au tournoi <span class="bold">FCGM Champions League</span> de Guipry-Messac, construite et couplée à <span class="bold">Mark</span>, le logiciel de gestion de tournoi.<br/><br/>Pensée pour tous les participants sans friction : <span class="bold">aucune authentification explicite</span>, un identifiant anonyme généré au premier lancement suffit pour accéder à l'ensemble des fonctionnalités.`,
@@ -80,6 +102,20 @@ export const PROJECTS: Project[] = [
       '<span class="bold">Sans authentification explicite</span> – identifiant anonyme généré au premier téléchargement, conforme RGPD',
       'Déploiement <span class="bold">App Store (iOS)</span> via Xcode et <span class="bold">Google Play (Android)</span> via Android Studio & Gradle',
     ],
+    caseStudy: {
+      context: `Le tournoi FCGM Champions League de Guipry-Messac avait besoin d'une application pour suivre les phases, les résultats et se repérer sur le site, utilisable par tous les participants sans friction.`,
+      // TODO : qui a pris ces décisions (toi, l'équipe, le client) ? avec quelles contraintes (délai, budget) ?
+      decisions: [
+        `Aucune authentification explicite : un identifiant anonyme généré au premier lancement, conforme RGPD`,
+        `Construite en marque blanche à partir de l'application Kalisport, et couplée à Mark, le logiciel de gestion de tournoi`,
+        `Favoris et notifications pour suivre ses clubs, carte interactive du site`,
+      ],
+      // TODO : chiffres de l'étude d'impact (téléchargements, utilisateurs pendant le tournoi…).
+      results: [
+        `Étude d'impact complète avec statistiques de fréquentation et d'usage`,
+        `Publiée sur l'App Store et Google Play`,
+      ],
+    },
     images: [
       { ratio: 'piz-1', label: 'Programme & résultats – vue principale' },
       { type: 'row', items: [
@@ -95,8 +131,8 @@ export const PROJECTS: Project[] = [
     year: '2023 – 2026',
     tagline: 'Application mobile hybride pour la gestion de clubs et tournois sportifs. +300 000 utilisateurs actifs.',
     gradient: 'g-kalisport',
-    mainTechs: ['Angular', 'Ionic', 'Capacitor', 'TypeScript'],
-    allTechs: ['PHP', 'MariaDB', 'RabbitMQ', 'Gradle', 'XCode', 'Android Studio'],
+    mainTechs: ['Angular', 'TypeScript', 'PHP', 'Ionic', 'Capacitor'],
+    allTechs: ['MariaDB', 'RabbitMQ', 'Gradle', 'XCode', 'Android Studio'],
     type: 'Application mobile hybride',
     role: 'Lead développement & déploiement',
     intro: `Application mobile hybride pour la gestion de clubs et associations sportives, déployée sur <span class="bold">App Store et Google Play</span>.<br/><br/>Projet piloté de bout en bout : conception, architecture, déploiement, et <span class="bold">suivi post-lancement avec +300 000 utilisateurs actifs</span>.`,
@@ -108,6 +144,20 @@ export const PROJECTS: Project[] = [
       'Automatismes <span class="bold">marque blanche</span> : génération de builds paramétrables',
       'Monitoring <span class="bold">Grafana / Prometheus</span>, standards OWASP (Prêt mais non utilisé)',
     ],
+    caseStudy: {
+      context: `Application mobile hybride pour la gestion des clubs et associations sportives, alimentée par les données de plusieurs fédérations (FFBB, FFF).`,
+      // TODO : signaux de lead — taille de l'équipe, lien avec le produit / les clients,
+      // arbitrages que tu as portés, accompagnement d'autres devs.
+      decisions: [
+        `Messagerie temps réel via RabbitMQ`,
+        `Automatisation des builds marque blanche paramétrables, réutilisés pour d'autres applications (FCGM)`,
+        `Modélisation complète d'un hub de données des fédérations sportives`,
+      ],
+      results: [
+        `+300 000 utilisateurs actifs`,
+        `Publiée sur l'App Store et Google Play, avec un suivi post-lancement`,
+      ],
+    },
     images: [
       { ratio: 'piz-1', label: 'Vue principale de l\'application' },
       { type: 'row', items: [

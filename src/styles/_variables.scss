@@ -2,24 +2,25 @@
 // COLORS
 // ============================================
 
-// Primary colors (Orange theme)
-$primary-color: #ff6b35;        // Orange vif
-$primary-dark: #cc4f1e;         // Orange foncé
-$primary-light: #ff8a5b;        // Orange clair
+// Accent (cuivre désaturé)
+$primary-color: #d9895b;
+$primary-dark: #c0744a;
+$primary-light: #e3a47f;
 
-// Background colors (Dark theme)
-$bg-main: #080808;              // Background principal
-$bg-s1: #111;                   // Surface 1
-$bg-s2: #1a1a1a;               // Surface 2
-$bg-s3: #242424;               // Surface 3
+// Background colors (sombre apaisé, légèrement bleuté)
+$bg-main: #121417;
+$bg-s1: #181b1f;
+$bg-s2: #1e2227;
+$bg-s3: #262b31;
 
 // Text colors
-$text-primary: #e8e8e8;         // Texte principal
-$text-muted: #666;              // Texte atténué
-$text-faint: #333;              // Texte très faint
+$text-primary: #e6e6e6;
+$text-secondary: #b4bac0;      // Texte courant
+$text-muted: #8a9198;          // Métadonnées
+$text-faint: #5c636b;
 
 // Border colors
-$border-color: #2a2a2a;         // Bordures
+$border-color: #2a2f36;
 
 // Accent colors
 $accent-color: $primary-color;
@@ -30,8 +31,8 @@ $error-color: #ef4444;
 // TYPOGRAPHY
 // ============================================
 
-$font-primary: 'Outfit', sans-serif;
-$font-code: 'JetBrains Mono', monospace;
+$font-primary: 'IBM Plex Sans', system-ui, sans-serif;
+$font-code: 'IBM Plex Mono', monospace;
 
 $font-size-xs: 0.75rem;         // 12px
 $font-size-sm: 0.875rem;        // 14px
@@ -96,7 +97,6 @@ $box-shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
 $box-shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
 $box-shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
 $box-shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.15);
-$box-shadow-primary: 0 8px 20px rgba(37, 99, 235, 0.15);
 
 // ============================================
 // TRANSITIONS

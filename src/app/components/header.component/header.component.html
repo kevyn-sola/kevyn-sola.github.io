@@ -1,12 +1,25 @@
-<nav id="nav" [class.hidden]="false" [class.scrolled]="isScrolled">
-  <a class="nav-logo" (click)="goHome()">
-    <span class="nav-logo-dot"></span>
+<nav id="nav" [class.scrolled]="isScrolled || isMenuOpen" [class.open]="isMenuOpen">
+  <a class="nav-logo" [class.visible]="showLogo || isMenuOpen" (click)="goHome()">
     Kevyn SOLA
   </a>
-  <div class="nav-links">
-    <a routerLink="/" [fragment]="'projects'" class="hide-m" (click)="closeMenu()">Projets</a>
-    <a routerLink="/" [fragment]="'about'" class="hide-m" (click)="closeMenu()">À propos</a>
-    <a routerLink="/" [fragment]="'contact'" class="hide-m" (click)="closeMenu()">Contact</a>
-    <a href="mailto:kevyn.sola@gmail.com" class="nav-cta">Disponible</a>
+
+  <div class="nav-links" id="nav-menu" [class.open]="isMenuOpen">
+    <a routerLink="/" [fragment]="'projects'" (click)="closeMenu()">Projets</a>
+    @if (showCareer) {
+      <a routerLink="/" [fragment]="'career'" (click)="closeMenu()">Parcours</a>
+    }
+    <a routerLink="/" [fragment]="'about'" (click)="closeMenu()">À propos</a>
+    <a routerLink="/" [fragment]="'contact'" (click)="closeMenu()">Contact</a>
+    <a href="mailto:kevyn.sola@gmail.com" class="nav-cta" (click)="closeMenu()">Disponible</a>
   </div>
+
+  <button
+    type="button"
+    class="nav-toggle"
+    (click)="toggleMenu()"
+    [attr.aria-expanded]="isMenuOpen"
+    aria-controls="nav-menu"
+  >
+    {{ isMenuOpen ? 'Fermer' : 'Menu' }}
+  </button>
 </nav>

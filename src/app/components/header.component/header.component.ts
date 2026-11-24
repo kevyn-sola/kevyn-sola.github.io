@@ -1,6 +1,7 @@
 import { Component, HostListener } from '@angular/core';
 import { RouterModule, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { showCareer } from '../../services/career.data';
 
 @Component({
   selector: 'app-header',
@@ -9,6 +10,7 @@ import { CommonModule } from '@angular/common';
   styleUrl: './header.component.scss',
 })
 export class HeaderComponent {
+  readonly showCareer = showCareer();
   isScrolled = false;
   isMenuOpen = false;
   lastScrollY = 0;
@@ -29,6 +31,27 @@ export class HeaderComponent {
 
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
+  }
+
+  /**
+   * Sur l'accueil, le nom est déjà en grand dans le hero : on ne l'affiche
+   * dans le menu qu'une fois le header affiché avec son fond (au scroll).
+   */
+  get showLogo(): boolean {
+    const isHome = this.router.url.split(/[?#]/)[0] === '/';
+    return !isHome || this.isScrolled;
+  }
+
+  /** Échap ferme le menu mobile. */
+  @HostListener('document:keydown.escape')
+  onEscape() {
+    this.closeMenu();
+  }
+
+  /** Repasser en largeur desktop referme le menu mobile. */
+  @HostListener('window:resize')
+  onResize() {
+    if (window.innerWidth > 768) this.closeMenu();
   }
 
   closeMenu() {

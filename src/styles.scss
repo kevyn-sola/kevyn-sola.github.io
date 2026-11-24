@@ -18,6 +18,7 @@
   --primary-light: #{$primary-light};
 
   --text-primary: #{$text-primary};
+  --text-secondary: #{$text-secondary};
   --text-muted: #{$text-muted};
   --text-faint: #{$text-faint};
 
@@ -43,8 +44,8 @@
   --text: #{$text-primary};
   --muted: #{$text-muted};
   --faint: #{$text-faint};
-  --f-h: 'Outfit', sans-serif;
-  --f-m: 'JetBrains Mono', monospace;
+  --f-h: #{$font-primary};
+  --f-m: #{$font-code};
 }
 
 // ============================================
@@ -64,7 +65,7 @@ html {
 
 ::selection {
   background: var(--primary-color);
-  color: #000;
+  color: var(--bg-main);
 }
 
 ::-webkit-scrollbar {
@@ -83,13 +84,14 @@ body {
   background: var(--bg-main);
   color: var(--text-primary);
   font-family: $font-primary;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
-  cursor: none !important;
 }
 
 h1, h2, h3, h4, h5, h6 {
   color: var(--text-primary);
-  font-weight: $font-weight-bold;
+  font-weight: $font-weight-semibold;
   line-height: $line-height-tight;
 }
 
@@ -101,17 +103,57 @@ a {
   color: var(--primary-color);
   text-decoration: none;
   transition: color 0.2s ease;
-  cursor: none !important;
 
   &:hover {
     color: var(--primary-dark);
-    cursor: none !important;
   }
 }
 
 span.bold {
   color: var(--text);
   font-weight: 500;
+}
+
+// ============================================
+// BOUTONS (partagés)
+// ============================================
+
+.btn-primary,
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: $font-primary;
+  font-size: 0.95rem;
+  font-weight: 500;
+  padding: 0.7rem 1.4rem;
+  border-radius: 6px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.btn-primary {
+  background: var(--primary-color);
+  color: var(--bg-main);
+  border: 1px solid var(--primary-color);
+
+  &:hover {
+    background: var(--primary-light);
+    border-color: var(--primary-light);
+    color: var(--bg-main);
+  }
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--text-primary);
+  border: 1px solid var(--border-color);
+
+  &:hover {
+    border-color: var(--text-muted);
+    color: var(--text-primary);
+  }
 }
 
 // ============================================
@@ -131,33 +173,6 @@ span.bold {
 .mt-sm { margin-top: $spacing-sm; }
 .mt-md { margin-top: $spacing-md; }
 .mt-lg { margin-top: $spacing-lg; }
-
-// ============================================
-// REVEAL ANIMATIONS
-// ============================================
-
-.reveal {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.65s ease, transform 0.65s ease;
-
-  &.on {
-    opacity: 1;
-    transform: none;
-  }
-
-  &.reveal-d1 {
-    transition-delay: 0.1s;
-  }
-
-  &.reveal-d2 {
-    transition-delay: 0.2s;
-  }
-
-  &.reveal-d3 {
-    transition-delay: 0.3s;
-  }
-}
 
 // ============================================
 // RESPONSIVE

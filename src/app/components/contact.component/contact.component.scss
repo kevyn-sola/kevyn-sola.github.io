@@ -2,42 +2,25 @@
 @import '../../../styles/mixins';
 
 .contact-section {
-  padding: 7rem 3rem;
+  padding: 5rem 8rem 6rem;
   border-top: 1px solid var(--border-color);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 2rem;
 
   @include respond-to('md') {
-    padding: 4rem 1.5rem;
-  }
-
-  .s-label {
-    font-family: var(--font-code);
-    font-size: 0.68rem;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--text-muted);
+    padding: 3rem 1.5rem 4rem;
   }
 }
 
-.contact-big {
-  font-size: clamp(2rem, 6vw, 5rem);
-  font-weight: 800;
-  letter-spacing: -0.04em;
-  line-height: 1;
-  color: var(--text-primary);
-  margin: 0;
-  padding: 0;
+.s-title {
+  font-size: clamp(1.6rem, 3vw, 2.1rem);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin-bottom: 1.25rem;
 }
 
 .contact-sub {
-  font-size: 1rem;
-  color: var(--text-muted);
-  max-width: 400px;
-  font-weight: 300;
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  max-width: 40rem;
   line-height: 1.6;
   margin: 0;
   padding: 0;
@@ -45,20 +28,17 @@
 
 .contact-links {
   display: flex;
-  gap: 1rem;
   flex-wrap: wrap;
-  justify-content: center;
-  margin-top: 1rem;
+  gap: 0.75rem;
+  margin-top: 2rem;
 }
 
 .contact-link {
-  font-family: var(--font-code);
-  font-size: 0.7rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--text-muted);
+  font-size: 0.95rem;
+  color: var(--text-primary);
   border: 1px solid var(--border-color);
-  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  padding: 0.6rem 1.1rem;
   text-decoration: none;
   transition: border-color 0.2s ease, color 0.2s ease;
 
@@ -66,15 +46,9 @@
     border-color: var(--primary-color);
     color: var(--primary-color);
   }
-}
 
-.reveal {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.65s ease, transform 0.65s ease;
-
-  &.on {
-    opacity: 1;
-    transform: none;
+  &.primary {
+    color: var(--primary-color);
+    border-color: rgba(217, 137, 91, 0.45);
   }
 }

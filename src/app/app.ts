@@ -3,8 +3,8 @@ import { Routes, RouterModule, ActivatedRoute } from '@angular/router';
 import { HeaderComponent } from './components/header.component/header.component';
 import { HeroComponent } from './components/hero.component/hero.component';
 import { AboutComponent } from './components/about.component/about.component';
-import { SkillsComponent } from './components/skills.component/skills.component';
 import { ProjectsComponent } from './components/projects.component/projects.component';
+import { CareerComponent } from './components/career.component/career.component';
 import { ContactComponent } from './components/contact.component/contact.component';
 import { FooterComponent } from './components/footer.component/footer.component';
 import { ProjectDetailComponent } from './components/project-detail.component/project-detail.component';
@@ -16,56 +16,8 @@ import { ProjectDetailComponent } from './components/project-detail.component/pr
   standalone: true,
   imports: [RouterModule]
 })
-export class App implements AfterViewInit {
+export class App {
   title = 'portfolio-kevyn';
-
-  ngAfterViewInit() {
-    this.initCustomCursor();
-  }
-
-  private initCustomCursor() {
-    const isTouchDevice = () => {
-      return (('ontouchstart' in window) ||
-              (navigator.maxTouchPoints > 0) ||
-              ((navigator as any).msMaxTouchPoints > 0));
-    };
-
-    if (isTouchDevice()) {
-      document.body.style.cursor = 'auto';
-      return;
-    }
-
-    const follower = document.querySelector('.cursor-follower') as HTMLElement;
-    const dot = document.querySelector('.cursor-dot') as HTMLElement;
-    let mouseX = 0;
-    let mouseY = 0;
-    let followerX = 0;
-    let followerY = 0;
-
-    document.addEventListener('mousemove', (e) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-
-      if (dot) {
-        dot.style.left = (mouseX - 4) + 'px';
-        dot.style.top = (mouseY - 4) + 'px';
-      }
-    });
-
-    const animateFollower = () => {
-      followerX += (mouseX - followerX - 20) * 0.2;
-      followerY += (mouseY - followerY - 20) * 0.2;
-
-      if (follower) {
-        follower.style.left = followerX + 'px';
-        follower.style.top = followerY + 'px';
-      }
-
-      requestAnimationFrame(animateFollower);
-    };
-
-    animateFollower();
-  }
 }
 
 @Component({
@@ -75,7 +27,7 @@ export class App implements AfterViewInit {
     HeaderComponent,
     HeroComponent,
     ProjectsComponent,
-    SkillsComponent,
+    CareerComponent,
     AboutComponent,
     ContactComponent,
     FooterComponent
@@ -85,7 +37,7 @@ export class App implements AfterViewInit {
     <main>
       <app-hero></app-hero>
       <app-projects></app-projects>
-      <app-skills></app-skills>
+      <app-career></app-career>
       <app-about></app-about>
       <app-contact></app-contact>
     </main>
@@ -96,7 +48,6 @@ export class AppHome implements AfterViewInit {
   constructor(private route: ActivatedRoute) {}
 
   ngAfterViewInit() {
-    this.setupRevealAnimation();
     this.route.fragment.subscribe(fragment => {
       if (fragment) {
         setTimeout(() => {
@@ -109,19 +60,6 @@ export class AppHome implements AfterViewInit {
         window.scrollTo(0, 0);
       }
     });
-  }
-
-  private setupRevealAnimation() {
-    const io = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('on');
-          io.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.06 });
-
-    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
   }
 }
 

@@ -1,47 +1,94 @@
 <section id="projects" class="section">
-  <div class="s-header reveal">
+  <div class="s-header">
     <div>
-      <div class="s-label">// 01</div>
       <h2 class="s-title">Projets</h2>
     </div>
   </div>
 
   <div class="projects-list">
     @for (project of projects; track project.id; let i = $index) {
-      <div class="proj-row reveal" (click)="navigateToProject(project.id)">
+      @if (hasScreenshots(project)) {
+        <!-- Projet avec captures : ligne cliquable vers la page détail -->
+        <div class="proj-row clickable" (click)="navigateToProject(project)">
+          <div class="proj-header">
+            <span class="proj-index">{{ (i + 1).toString().padStart(2, '0') }}</span>
+            <span class="proj-name">{{ project.title }}</span>
+            <span class="proj-year">{{ project.year }}</span>
+            <span class="proj-arrow">→</span>
+          </div>
 
-        <div class="proj-header">
-          <span class="proj-index">{{ (i + 1).toString().padStart(2, '0') }}</span>
-          <span class="proj-name">{{ project.title }}</span>
-          <span class="proj-year">{{ project.year }}</span>
-          <span class="proj-arrow">→</span>
-        </div>
-
-        <div class="proj-body">
-          <div class="proj-body-inner">
-            <div class="proj-expanded">
-              <div class="proj-visual">
-                <div [class]="'proj-gradient ' + project.gradient"></div>
-                <div class="proj-tech-overlay">
-                  @for (tech of project.mainTechs; track tech) {
-                    <span class="tech-badge hot">{{ tech }}</span>
-                  }
+          <div class="proj-body">
+            <div class="proj-body-inner">
+              <div class="proj-expanded">
+                <div class="proj-visual">
+                  <img class="proj-cover" [src]="cover(project)" [alt]="project.title" />
                 </div>
-              </div>
-              <div class="proj-details">
-                <div class="proj-tagline">{{ project.tagline }}</div>
-                <div class="proj-all-techs">
-                  @for (tech of project.allTechs; track tech) {
-                    <span class="tech-badge">{{ tech }}</span>
-                  }
+                <div class="proj-details">
+                  <div class="proj-tagline">{{ project.tagline }}</div>
+                  <div class="proj-all-techs">
+                    @for (tech of project.mainTechs.concat(project.allTechs); track tech) {
+                      <span class="tech-badge" [class.focus]="isFocus(tech)">{{ tech }}</span>
+                    }
+                  </div>
+                  <div class="proj-cta">Voir le projet →</div>
                 </div>
-                <div class="proj-cta">Voir le projet →</div>
               </div>
             </div>
           </div>
         </div>
+      } @else {
+        <!-- Projet sans capture : descriptif affiché directement, pas de lien -->
+        <div class="proj-row static">
+          <div class="proj-header">
+            <span class="proj-index">{{ (i + 1).toString().padStart(2, '0') }}</span>
+            <span class="proj-name">{{ project.title }}</span>
+            <span class="proj-year">{{ project.year }}</span>
+          </div>
 
-      </div>
+          <div class="proj-desc">
+            <div class="proj-context">{{ project.label }}</div>
+
+            @if (project.caseStudy; as cs) {
+              <dl class="case">
+                @if (cs.context) {
+                  <dt>Contexte</dt>
+                  <dd>{{ cs.context }}</dd>
+                }
+                @if (project.role) {
+                  <dt>Mon rôle</dt>
+                  <dd>{{ project.role }}</dd>
+                }
+                @if (cs.decisions?.length) {
+                  <dt>Décisions</dt>
+                  <dd>
+                    <ul>
+                      @for (d of cs.decisions; track d) { <li>{{ d }}</li> }
+                    </ul>
+                  </dd>
+                }
+                @if (cs.results?.length) {
+                  <dt>Résultats</dt>
+                  <dd>
+                    <ul>
+                      @for (r of cs.results; track r) { <li>{{ r }}</li> }
+                    </ul>
+                  </dd>
+                } @else if (dev) {
+                  <dt class="todo">Résultats</dt>
+                  <dd class="todo">À compléter dans projects.data.ts</dd>
+                }
+              </dl>
+            } @else {
+              <p class="proj-intro" [innerHTML]="project.intro || project.tagline"></p>
+            }
+            <div class="proj-all-techs">
+              @for (tech of project.mainTechs.concat(project.allTechs); track tech) {
+                <span class="tech-badge" [class.focus]="isFocus(tech)">{{ tech }}</span>
+              }
+            </div>
+          </div>
+        </div>
+      }
     }
   </div>
 </section>

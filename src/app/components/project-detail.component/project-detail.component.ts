@@ -29,7 +29,7 @@ export class ProjectDetailComponent implements OnInit, AfterViewInit, OnDestroy 
     this.route.params.subscribe(params => {
       const id = params['id'];
       this.project = this.projectsService.getProject(id);
-      if (!this.project) {
+      if (!this.project || !this.projectsService.hasScreenshots(this.project)) {
         this.router.navigate(['/']);
       }
       window.scrollTo(0, 0);

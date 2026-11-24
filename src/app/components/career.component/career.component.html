@@ -1,0 +1,30 @@
+@if (visible) {
+  <section class="section" id="career">
+    <div class="s-header">
+      <h2 class="s-title">Parcours</h2>
+    </div>
+
+    <ol class="timeline">
+      @for (step of steps; track step.title) {
+        <li class="step" [class.todo]="!isComplete(step)">
+          <div class="step-period">
+            {{ step.period || 'Période à compléter' }}
+          </div>
+          <div class="step-body">
+            <h3 class="step-title">
+              {{ step.title }}
+              @if (step.place) {
+                <span class="step-place">· {{ step.place }}</span>
+              }
+            </h3>
+            @if (step.description) {
+              <p class="step-desc">{{ step.description }}</p>
+            } @else if (dev) {
+              <p class="step-desc placeholder">Description à compléter dans career.data.ts</p>
+            }
+          </div>
+        </li>
+      }
+    </ol>
+  </section>
+}
