@@ -6,20 +6,12 @@ Repère : en local (`npm start`), tout ce qui manque s'affiche en grisé « à c
 
 ---
 
-## 1. Captures d'écran (priorité n°1)
+## 1. Visuels des projets
 
-Un projet n'a pas de page détail tant qu'il n'a pas au moins une capture.
-
-- [ ] Kalisport : vue principale, écran tournoi, messagerie, dashboard fédération
-- [ ] FCGM Champions League : programme & résultats, carte du site, phases & classement
-- [ ] Kanban : boards, roadmap client, login, détail d'un board
-- [ ] Gestion de mariage : dashboard mariés, site invités, planning, RSVP
-
-Comment faire : déposer les images dans `src/assets/projects/<projet>/`, puis ajouter `src` sur l'image dans `src/app/services/projects.data.ts` :
-
-```ts
-{ ratio: 'piz-1', label: 'Vue principale', src: 'assets/projects/kalisport/home.png' },
-```
+- [x] Visuel FCGM (mockup + icône) à droite du projet, champ `visual`
+- [x] Carrousel Kalisport (back-office + mobile) à droite du projet, champ `gallery`, avec plein écran
+- [ ] Vérifier que les noms visibles dans les captures Kalisport (clients de la boutique, « MALO Charlotte », photos de profil) sont des données de démo
+- [ ] Visuels pour Kanban et Gestion de mariage (même format : PNG transparent, déposer dans `src/assets/projects/<projet>/`)
 
 ## 2. Études de cas (`src/app/services/projects.data.ts`, champ `caseStudy`)
 
@@ -27,7 +19,7 @@ Le plus important pour un profil lead : le **pourquoi** des décisions, pas seul
 
 - [ ] **Kalisport**
   - [ ] Taille de l'équipe, avec qui tu travailles (produit, clients, fédérations)
-  - [ ] Les arbitrages que tu as portés (ex. pourquoi RabbitMQ, pourquoi des builds marque blanche)
+  - [ ] Les arbitrages que tu as portés (ex. pourquoi une app pensée pour la marque blanche)
   - [ ] Accompagnement d'autres devs, revues de code, recrutement… s'il y en a
 - [ ] **FCGM**
   - [ ] Qui a décidé quoi (toi, l'équipe, le client) et avec quelles contraintes (délai, budget)
@@ -41,16 +33,13 @@ Le plus important pour un profil lead : le **pourquoi** des décisions, pas seul
 
 ## 3. Parcours (`src/app/services/career.data.ts`)
 
-La section n'apparaît en ligne qu'à partir de 2 étapes complètes (période + titre).
-
-- [ ] Ingénierie du son : dates, poste, structure(s), ce que ce métier t'a appris et que tu réutilises
-- [ ] Reconversion : dates, formation (école, diplôme, autodidacte), pourquoi ce choix
-- [ ] Kalisport : date d'arrivée exacte, évolution du poste (dev → lead ?) — faire 2 étapes si c'est le cas
-- [ ] La suite : ce que tu vises et pourquoi (laisser la période vide pour ne pas l'afficher)
+- [x] Toutes les étapes remplies (son, Dior, Keolis, reconversion, alternance, Kalisport, objectif)
+- [x] Mise en forme : étape actuelle mise en avant, objectif grisé, métiers hors tech en compact
 
 ## 4. Textes à réécrire avec tes mots
 
-- [ ] **Intitulé Kalisport cohérent partout** : « Lead développement & déploiement » (projet) vs « Développeur Full Stack » (Parcours, À propos)
+- [x] **Intitulé** : « Ingénieur logiciel full stack » dans le hero et l'À propos, « Ingénieur Logiciel » dans le Parcours
+- [ ] **À propos** : « après une carrière dans l'ingénierie du son » oublie Dior et Keolis, à reformuler
 - [ ] **À propos** : vérifier que les APIs Kalisport sont bien en PHP (j'ai déduit ça de la stack)
 - [ ] **À propos** : ajouter une anecdote vraie (un incident, une décision difficile, un retour utilisateur)
 - [ ] **À propos** : rendre concret « comprendre un système dans son ensemble » (lien son → code)
@@ -59,7 +48,9 @@ La section n'apparaît en ligne qu'à partir de 2 étapes complètes (période +
 - [ ] **Expressions creuses** à remplacer : « de bout en bout », « sans friction », « pensée comme un vrai produit »
 - [x] **« Travaillons ensemble »** apparaissait deux fois : remplacé par un titre « Contact » et un bouton CV
 - [x] **Chiffres de l'À propos** : grille de statistiques supprimée (redondante avec le hero, les projets et le texte)
-- [ ] **Kalisport (page détail)** : « Monitoring Grafana / Prometheus, standards OWASP (Prêt mais non utilisé) » à expliquer ou à retirer
+- [x] **Kalisport** : RabbitMQ et Grafana / Prometheus présentés comme des tentatives non abouties en production
+- [x] **OWASP** : ajouté dans l'étude de cas et la page détail Kalisport
+- [x] **FCGM** : n'est plus présentée comme une marque blanche de Kalisport (recréée de zéro, en standalone)
 - [ ] **Positionnement PHP / Java** : les intros Kanban et mariage insistent beaucoup sur Spring Boot, à adoucir si PHP passe devant
 - [ ] **Nom de Mark** : « Mark by @Kalisport » dans l'À propos, « Mark » ailleurs, choisir une forme
 - [ ] **Hero** : relire la phrase « Développeur full stack, orienté produit et équipe. » et la description, que ce soit ta voix
@@ -71,13 +62,13 @@ La section n'apparaît en ligne qu'à partir de 2 étapes complètes (période +
   - [ ] Vérifier que le PDF est à jour avec le nouveau positionnement (Angular / TypeScript / PHP / Java)
 - [ ] **`<html lang="en">`** alors que le site est en français (`src/index.html`)
 - [ ] **Mélange anglais / français** dans les libellés restants
-- [ ] **Pages projet** : seulement les nouvelles couleurs et polices, mise en page encore en police code majuscules (à reprendre avant d'ajouter les captures)
+- [x] **Pages projet** : supprimées, tout le contenu est dans les études de cas de la liste (les anciennes adresses `/project/...` renvoient vers l'accueil)
 - [ ] **Nettoyage** :
   - [ ] Feuille Devicon chargée dans `index.html` mais jamais utilisée
   - [ ] `ThemeService` jamais utilisé
-  - [ ] Variables en double dans `styles.scss` (`--orange`, `--s1`, `--muted`… utilisées par la page projet)
+  - [x] Variables en double dans `styles.scss` supprimées avec la page projet
   - [ ] Variables inutilisées dans `_variables.scss` (échelle de z-index, ombres…)
-- [ ] **Avertissements de build** : styles des pages projets au-dessus du budget de 4 kB
+- [x] **Avertissements de build** : plus de dépassement de budget depuis la suppression des pages projet
 - [ ] **`package-lock.json`** modifié avant cette session : vérifier si c'est voulu
 
 ## 6. Avant de publier

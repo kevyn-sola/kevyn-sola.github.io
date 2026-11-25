@@ -23,8 +23,42 @@
   color: var(--text-primary);
 }
 
+.about-body {
+  display: grid;
+  // Le texte garde sa largeur de lecture, la photo est centrée dans l'espace restant
+  grid-template-columns: minmax(0, 44rem) 1fr;
+  align-items: start;
+
+  @include respond-to('md') {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Photo à droite du texte, au-dessus sur mobile
+.about-photo {
+  grid-column: 2;
+  grid-row: 1;
+  justify-self: center;
+  // Grandit avec l'écran ; plafonnée à 20rem (320px), la photo source fait 346px
+  width: clamp(14rem, 20vw, 20rem);
+  height: auto;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px var(--border-color), 0 0 0 6px var(--bg-s1);
+
+  @include respond-to('md') {
+    grid-column: 1;
+    width: clamp(10rem, 40vw, 12rem);
+    margin-bottom: 2rem;
+  }
+}
+
 .about-text {
-  max-width: 44rem;
+  grid-column: 1;
+  grid-row: 1;
+
+  @include respond-to('md') {
+    grid-row: 2;
+  }
 
   p {
     font-size: 1.05rem;

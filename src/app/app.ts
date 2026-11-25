@@ -7,7 +7,6 @@ import { ProjectsComponent } from './components/projects.component/projects.comp
 import { CareerComponent } from './components/career.component/career.component';
 import { ContactComponent } from './components/contact.component/contact.component';
 import { FooterComponent } from './components/footer.component/footer.component';
-import { ProjectDetailComponent } from './components/project-detail.component/project-detail.component';
 
 @Component({
   selector: 'app-root',
@@ -68,8 +67,9 @@ export const routes: Routes = [
     path: '',
     component: AppHome,
   },
+  // Anciennes pages projet (/project/:id) et toute autre adresse : retour à l'accueil
   {
-    path: 'project/:id',
-    component: ProjectDetailComponent,
+    path: '**',
+    redirectTo: '',
   },
 ];

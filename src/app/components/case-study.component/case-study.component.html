@@ -1,0 +1,31 @@
+@if (project.caseStudy; as cs) {
+  <dl class="case">
+    @if (cs.context) {
+      <dt>Contexte</dt>
+      <dd>{{ cs.context }}</dd>
+    }
+    @if (project.role) {
+      <dt>Mon rôle</dt>
+      <dd>{{ project.role }}</dd>
+    }
+    @if (cs.decisions?.length) {
+      <dt>Décisions</dt>
+      <dd>
+        <ul>
+          @for (d of cs.decisions; track d) { <li>{{ d }}</li> }
+        </ul>
+      </dd>
+    }
+    @if (cs.results?.length) {
+      <dt>Résultats</dt>
+      <dd>
+        <ul>
+          @for (r of cs.results; track r) { <li>{{ r }}</li> }
+        </ul>
+      </dd>
+    } @else if (dev) {
+      <dt class="todo">Résultats</dt>
+      <dd class="todo">À compléter dans projects.data.ts</dd>
+    }
+  </dl>
+}

@@ -32,20 +32,6 @@
   --accent-color: #{$accent-color};
 
   --font-code: #{$font-code};
-
-  /* Aliases for project detail component */
-  --bg: #{$bg-main};
-  --s1: #{$bg-s1};
-  --s2: #{$bg-s2};
-  --s3: #{$bg-s3};
-  --border: #{$border-color};
-  --orange: #{$primary-color};
-  --orange-d: #{$primary-dark};
-  --text: #{$text-primary};
-  --muted: #{$text-muted};
-  --faint: #{$text-faint};
-  --f-h: #{$font-primary};
-  --f-m: #{$font-code};
 }
 
 // ============================================
@@ -107,11 +93,6 @@ a {
   &:hover {
     color: var(--primary-dark);
   }
-}
-
-span.bold {
-  color: var(--text);
-  font-weight: 500;
 }
 
 // ============================================

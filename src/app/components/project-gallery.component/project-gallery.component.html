@@ -1,0 +1,68 @@
+<div
+  class="gallery"
+  role="group"
+  aria-roledescription="carrousel"
+  [attr.aria-label]="label"
+  tabindex="0"
+  (keydown)="onKeydown($event)"
+  (touchstart)="onTouchStart($event)"
+  (touchend)="onTouchEnd($event)"
+>
+  <button
+    type="button"
+    class="gallery-frame"
+    (click)="open()"
+    [attr.aria-label]="'Agrandir : ' + current.alt"
+  >
+    @for (img of images; track img.src; let i = $index) {
+      <img
+        [src]="img.src"
+        [alt]="img.alt"
+        [class.active]="i === index"
+        [attr.aria-hidden]="i !== index"
+        loading="lazy"
+      />
+    }
+  </button>
+
+  @if (images.length > 1) {
+    <div class="gallery-nav">
+      <button type="button" class="gallery-arrow" (click)="prev()" aria-label="Image précédente">‹</button>
+      <div class="gallery-dots">
+        @for (img of images; track img.src; let i = $index) {
+          <button
+            type="button"
+            class="gallery-dot"
+            [class.active]="i === index"
+            (click)="goTo(i)"
+            [attr.aria-label]="'Image ' + (i + 1) + ' sur ' + images.length + ' : ' + img.alt"
+            [attr.aria-current]="i === index"
+          ></button>
+        }
+      </div>
+      <button type="button" class="gallery-arrow" (click)="next()" aria-label="Image suivante">›</button>
+    </div>
+  }
+
+  <p class="gallery-caption" aria-live="polite">{{ current.alt }}</p>
+</div>
+
+<dialog
+  #lightbox
+  class="lightbox"
+  [attr.aria-label]="label"
+  (click)="onBackdropClick($event)"
+  (keydown)="onKeydown($event)"
+>
+  <img [src]="current.src" [alt]="current.alt" />
+  <div class="lightbox-bar">
+    @if (images.length > 1) {
+      <button type="button" class="gallery-arrow" (click)="prev()" aria-label="Image précédente">‹</button>
+    }
+    <span class="lightbox-caption">{{ current.alt }} · {{ index + 1 }} / {{ images.length }}</span>
+    @if (images.length > 1) {
+      <button type="button" class="gallery-arrow" (click)="next()" aria-label="Image suivante">›</button>
+    }
+    <button type="button" class="lightbox-close" (click)="close()">Fermer</button>
+  </div>
+</dialog>

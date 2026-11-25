@@ -7,79 +7,21 @@
 
   <div class="projects-list">
     @for (project of projects; track project.id; let i = $index) {
-      @if (hasScreenshots(project)) {
-        <!-- Projet avec captures : ligne cliquable vers la page détail -->
-        <div class="proj-row clickable" (click)="navigateToProject(project)">
-          <div class="proj-header">
-            <span class="proj-index">{{ (i + 1).toString().padStart(2, '0') }}</span>
-            <span class="proj-name">{{ project.title }}</span>
-            <span class="proj-year">{{ project.year }}</span>
-            <span class="proj-arrow">→</span>
-          </div>
-
-          <div class="proj-body">
-            <div class="proj-body-inner">
-              <div class="proj-expanded">
-                <div class="proj-visual">
-                  <img class="proj-cover" [src]="cover(project)" [alt]="project.title" />
-                </div>
-                <div class="proj-details">
-                  <div class="proj-tagline">{{ project.tagline }}</div>
-                  <div class="proj-all-techs">
-                    @for (tech of project.mainTechs.concat(project.allTechs); track tech) {
-                      <span class="tech-badge" [class.focus]="isFocus(tech)">{{ tech }}</span>
-                    }
-                  </div>
-                  <div class="proj-cta">Voir le projet →</div>
-                </div>
-              </div>
-            </div>
-          </div>
+      <div class="proj-row">
+        <div class="proj-header">
+          <span class="proj-index">{{ (i + 1).toString().padStart(2, '0') }}</span>
+          <span class="proj-name">{{ project.title }}</span>
+          <span class="proj-year">{{ project.year }}</span>
         </div>
-      } @else {
-        <!-- Projet sans capture : descriptif affiché directement, pas de lien -->
-        <div class="proj-row static">
-          <div class="proj-header">
-            <span class="proj-index">{{ (i + 1).toString().padStart(2, '0') }}</span>
-            <span class="proj-name">{{ project.title }}</span>
-            <span class="proj-year">{{ project.year }}</span>
-          </div>
 
+        <div class="proj-static-body" [class.has-visual]="project.visual || project.gallery?.length">
           <div class="proj-desc">
             <div class="proj-context">{{ project.label }}</div>
 
-            @if (project.caseStudy; as cs) {
-              <dl class="case">
-                @if (cs.context) {
-                  <dt>Contexte</dt>
-                  <dd>{{ cs.context }}</dd>
-                }
-                @if (project.role) {
-                  <dt>Mon rôle</dt>
-                  <dd>{{ project.role }}</dd>
-                }
-                @if (cs.decisions?.length) {
-                  <dt>Décisions</dt>
-                  <dd>
-                    <ul>
-                      @for (d of cs.decisions; track d) { <li>{{ d }}</li> }
-                    </ul>
-                  </dd>
-                }
-                @if (cs.results?.length) {
-                  <dt>Résultats</dt>
-                  <dd>
-                    <ul>
-                      @for (r of cs.results; track r) { <li>{{ r }}</li> }
-                    </ul>
-                  </dd>
-                } @else if (dev) {
-                  <dt class="todo">Résultats</dt>
-                  <dd class="todo">À compléter dans projects.data.ts</dd>
-                }
-              </dl>
+            @if (project.caseStudy) {
+              <app-case-study [project]="project" />
             } @else {
-              <p class="proj-intro" [innerHTML]="project.intro || project.tagline"></p>
+              <p class="proj-intro">{{ project.tagline }}</p>
             }
             <div class="proj-all-techs">
               @for (tech of project.mainTechs.concat(project.allTechs); track tech) {
@@ -87,8 +29,23 @@
               }
             </div>
           </div>
+
+          @if (project.gallery?.length) {
+            <app-project-gallery
+              class="proj-side-visual gallery"
+              [images]="project.gallery!"
+              [label]="'Visuels du projet ' + project.title"
+            />
+          } @else if (project.visual) {
+            <img
+              class="proj-side-visual"
+              [src]="project.visual"
+              [alt]="project.title + ', aperçu de l\'application mobile'"
+              loading="lazy"
+            />
+          }
         </div>
-      }
+      </div>
     }
   </div>
 </section>

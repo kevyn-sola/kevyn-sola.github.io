@@ -34,12 +34,11 @@ export class HeaderComponent {
   }
 
   /**
-   * Sur l'accueil, le nom est déjà en grand dans le hero : on ne l'affiche
-   * dans le menu qu'une fois le header affiché avec son fond (au scroll).
+   * Le nom est déjà en grand dans le hero : on ne l'affiche dans le menu
+   * qu'une fois le header affiché avec son fond (au scroll).
    */
   get showLogo(): boolean {
-    const isHome = this.router.url.split(/[?#]/)[0] === '/';
-    return !isHome || this.isScrolled;
+    return this.isScrolled;
   }
 
   /** Échap ferme le menu mobile. */

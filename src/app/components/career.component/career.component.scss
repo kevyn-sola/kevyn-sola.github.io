@@ -57,6 +57,64 @@
     padding-left: 1.25rem;
   }
 
+  // Situation actuelle : repère plein, période en couleur
+  &.current {
+    &::before {
+      background: var(--primary-color);
+      box-shadow: 0 0 0 4px rgba(217, 137, 91, 0.15);
+    }
+
+    .step-period {
+      color: var(--primary-color);
+    }
+
+    .step-title {
+      font-size: 1.2rem;
+    }
+  }
+
+  // Objectif : grisé, secondaire
+  &.future {
+    &::before {
+      border-style: dashed;
+      border-color: var(--text-muted);
+    }
+
+    .step-title,
+    .step-desc {
+      color: var(--text-muted);
+    }
+
+    .step-title {
+      font-weight: 500;
+    }
+  }
+
+  // Étape hors tech : compacte et discrète
+  &.minor {
+    padding-bottom: 1.5rem;
+
+    &::before {
+      border-color: var(--text-faint);
+    }
+
+    .step-title {
+      font-size: 0.98rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      margin-bottom: 0.2rem;
+    }
+
+    .step-place {
+      color: var(--text-muted);
+    }
+
+    .step-desc {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+    }
+  }
+
   // Étape incomplète : visible seulement en local
   &.todo {
     opacity: 0.55;

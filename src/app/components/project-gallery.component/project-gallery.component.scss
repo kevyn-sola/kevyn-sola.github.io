@@ -1,0 +1,152 @@
+:host {
+  display: block;
+}
+
+.gallery {
+  outline: none;
+
+  &:focus-visible .gallery-frame {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 3px;
+  }
+}
+
+// Cadre : toutes les images empilées, seule l'active est visible (fondu)
+.gallery-frame {
+  display: grid;
+  width: 100%;
+  padding: 0;
+  border: none;
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--bg-s2);
+  cursor: zoom-in;
+
+  img {
+    grid-area: 1 / 1;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1200 / 850;
+    object-fit: cover;
+    display: block;
+    opacity: 0;
+    transition: opacity 0.35s ease;
+
+    &.active {
+      opacity: 1;
+    }
+  }
+}
+
+.gallery-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+.gallery-arrow {
+  width: 2rem;
+  height: 2rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  line-height: 1;
+  color: var(--text-primary);
+  background: transparent;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+
+  &:hover {
+    border-color: var(--text-muted);
+  }
+}
+
+.gallery-dots {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.gallery-dot {
+  width: 7px;
+  height: 7px;
+  padding: 0;
+  border-radius: 50%;
+  border: none;
+  background: var(--text-faint);
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+
+  &.active {
+    background: var(--primary-color);
+    transform: scale(1.25);
+  }
+}
+
+.gallery-caption {
+  margin: 0.5rem 0 0;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+// ── Plein écran ──
+
+.lightbox {
+  // Le reset global (* { margin: 0 }) annule le centrage natif du <dialog>
+  margin: auto;
+  max-width: min(92vw, 1200px);
+  max-height: 92vh;
+  padding: 0;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  background: var(--bg-s1);
+  color: var(--text-primary);
+  overflow: hidden;
+
+  &::backdrop {
+    background: rgba(8, 9, 11, 0.85);
+  }
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: calc(92vh - 3.5rem);
+    object-fit: contain;
+  }
+}
+
+.lightbox-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.6rem 0.9rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.lightbox-caption {
+  flex: 1;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.lightbox-close {
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  background: transparent;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  padding: 0.35rem 0.8rem;
+  cursor: pointer;
+
+  &:hover {
+    border-color: var(--text-muted);
+  }
+}
