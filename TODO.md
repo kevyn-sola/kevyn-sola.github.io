@@ -1,7 +1,5 @@
 # TODO portfolio
 
-Objectif : un site qui sonne humain et qui montre un profil full stack capable d'être tech lead / PO, en route vers engineering manager.
-
 Repère : en local (`npm start`), tout ce qui manque s'affiche en grisé « à compléter ». Sur le site publié, les blocs vides sont simplement cachés.
 
 ---
