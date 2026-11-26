@@ -10,7 +10,7 @@ Repère : en local (`npm start`), tout ce qui manque s'affiche en grisé « à c
 
 - [x] Visuel FCGM (mockup + icône) à droite du projet, champ `visual`
 - [x] Carrousel Kalisport (back-office + mobile) à droite du projet, champ `gallery`, avec plein écran
-- [ ] Vérifier que les noms visibles dans les captures Kalisport (clients de la boutique, « MALO Charlotte », photos de profil) sont des données de démo
+- [x] Vérifier que les noms visibles dans les captures Kalisport (clients de la boutique, « MALO Charlotte », photos de profil) sont des données de démo
 - [ ] Visuels pour Kanban et Gestion de mariage (même format : PNG transparent, déposer dans `src/assets/projects/<projet>/`)
 
 ## 2. Études de cas (`src/app/services/projects.data.ts`, champ `caseStudy`)
@@ -36,7 +36,7 @@ Le plus important pour un profil lead : le **pourquoi** des décisions, pas seul
 - [x] Toutes les étapes remplies (son, Dior, Keolis, reconversion, alternance, Kalisport, objectif)
 - [x] Mise en forme : étape actuelle mise en avant, objectif grisé, métiers hors tech en compact
 
-## 4. Textes à réécrire avec tes mots
+## 4. Textes à réécrire
 
 - [x] **Intitulé** : « Ingénieur logiciel full stack » dans le hero et l'À propos, « Ingénieur Logiciel » dans le Parcours
 - [ ] **À propos** : « après une carrière dans l'ingénierie du son » oublie Dior et Keolis, à reformuler
@@ -55,7 +55,7 @@ Le plus important pour un profil lead : le **pourquoi** des décisions, pas seul
 - [ ] **Nom de Mark** : « Mark by @Kalisport » dans l'À propos, « Mark » ailleurs, choisir une forme
 - [ ] **Hero** : relire la phrase « Développeur full stack, orienté produit et équipe. » et la description, que ce soit ta voix
 
-## 5. Technique (Claude peut s'en charger)
+## 5. Technique
 
 - [x] **Menu mobile** : bouton « Menu » avec panneau déroulant
 - [x] **CV** : bouton « Télécharger mon CV » ajouté dans l'À propos
